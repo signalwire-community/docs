@@ -1,0 +1,233 @@
+---
+sidebar_label: TapAction
+---
+
+# Relay.Calling.TapAction
+
+This object returned from [`tapAsync`](php/reference/relay_calling/call.mdx#tapasync) method that represents the running media tapping active on a call.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### getControlId
+
+Return the UUID to identify the action.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - UUID to identify the action.
+
+**Examples**
+
+> Start tapping audio and print the controlId.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  echo $action->getControlId();
+});
+```
+
+### getResult
+
+Returns the final result of this `tapping` action.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Calling.TapResult`](php/reference/relay_calling/tap_result.mdx) - Final `tap` result.
+
+**Examples**
+
+> Start tapping audio and grab the result when it's completed.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  // .. later in the code since it's an async method
+  if ($action->isCompleted()) {
+    $result = $action->getResult();
+  }
+});
+```
+
+### getPayload
+
+Return the payload sent to Relay to initiate the request. Useful to inspect what you sent to perform this action.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Object` - Payload sent to Relay.
+
+**Examples**
+
+> Start tapping audio and print out the payload.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  print_r($action->getPayload());
+});
+```
+
+### getState
+
+Return the current `tapping` state.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - The current state.
+
+**Examples**
+
+> Start tapping audio and print the state.
+
+```php
+<?php
+
+$tap = [ 'type' => 'audio' ];
+$device = [ 'type' => 'rtp', 'addr' => '192.168.1.1', 'port' => 1234 ];
+$call->tapAsync($tap, $device)->done(function($action) {
+  echo $action->getState();
+});
+```
+
+### isCompleted
+
+Return `true` if tapping has finished, `false` otherwise.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Boolean` - True/False accordingly to the state.
+
+**Examples**
+
+> Start tapping audio and check if it has finished.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  if ($action->isCompleted()) {
+
+  }
+});
+```
+
+### getSourceDevice
+
+Return the source device sending media.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Object` - The source device.
+
+**Examples**
+
+> Start tapping audio and then inspect the source device.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  $source = $action->getSourceDevice();
+});
+```
+
+### stop
+
+Stop the action immediately.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`React\Promise\Promise` - Promise object that will be fulfilled with a [`Relay.Calling.StopResult`](php/reference/relay_calling/stop_result.mdx) object.
+
+**Examples**
+
+> Start tapping audio and then stop the action.
+
+```php
+<?php
+
+$tap = [
+  'target_type' => 'rtp',
+  'target_addr' => '192.168.1.1',
+  'target_port' => 1234
+];
+$call->tapAsync($tap)->done(function($action) {
+  // For demonstration purposes only..
+  $action->stop()->done(function($stopResult) {
+
+  });
+});
+```
