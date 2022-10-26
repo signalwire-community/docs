@@ -1,0 +1,167 @@
+---
+sidebar_position: 2
+---
+
+# Hooks
+
+The hooks will automatically subscribe to and unsubscribe from Video events, maintain an up-to-date state, and trigger rerenders as necessary. This way your UI can keep track of the fluctuating state of things, like the ever-changing list of participants, current settings, etc, without a lot of code.
+
+This will be the general form of your program using hooks. You can receive the RoomSession object either from the Video component, the Programmable Video Conferences (PVC) component, or, from your own code.
+
+```jsx
+import { Video, useMembers } from "@signalwire-community/react";
+import { useState } from "react";
+
+function App() {
+  const [roomSession, setRoomSession] = useState(null);
+  const { self } = useMembers(roomSession);
+  return (
+    <>
+      <Video
+        token={import.meta.env.VITE_ROOM_TOKEN}
+        onRoomReady={(e) => setRoomSession(e)}
+      />
+      I am {self?.name ?? "connecting.."}.
+    </>
+  );
+}
+```
+
+## Basic Hooks
+
+### useMembers
+
+`useMembers` maintains a list of all members in the rooms session, a reference to the current member, and a function to remove everyone. Some methods and properties are added to each member object so you can control their state and presence. Eg. `members.find(m=>m.name==="jane")?.audio.mute()` or `!self.video.muted ? "Now you see me" : "Now you don't"`
+
+```jsx
+import { useMembers } from "@signalwire-community/react";
+function App() {
+  const { self, members, removeAll } = useMembers(roomSession);
+  return (
+    <>
+      I am {self?.name ?? "connecting.."}.
+      {members.map((m) => (
+        <button onClick={() => m.remove()}>Remove {m.name}</button>
+      ))}
+      <button onClick={() => removeAll()}>Remove all</button>
+    </>
+  );
+}
+```
+
+### useStatus
+
+This hook takes a Room Session, and returns an object with its status information. The `active` property is true as long as the client is connected to the Room Session.
+
+```jsx
+import { useStatus } from "@signalwire-community/react";
+
+function App() {
+  const { active } = useStatus(roomSession);
+  return (
+      {active ? <Controls /> : <Loading />}
+  );
+}
+
+```
+
+### useWebRTC
+
+Maintains an up-to-date list of permitted I/O devices, and tracks it's changes (eg. when user connects his headphones). This hook does not require a Room Session as an input. This hook keeps a list of cameras, microphones, and speakers by default. If you don't need to access camera at all, pass `{camera:false}`. Same for microphone and speaker.
+
+```jsx
+import { useWebRTC } from "@signalwire-community/react";
+
+function App() {
+  const { microphones, speakers } = useWebRTC({ camera: false });
+  return (
+    <>
+      {microphones.map((c) => (
+        <button onClick={() => roomSession?.updateMicrophone(c)}>
+          {c.label}
+        </button>
+      ))}
+    </>
+  );
+}
+```
+
+## Additional Hooks
+
+<!-- Sort in alphanumeric order -->
+
+### useLayouts
+
+Given an active RoomSession, `useLayouts` maintains a list of all video layouts enabled in the room, the current layout, and a function to change between them.
+
+```jsx
+import { useLayouts } from "@signalwire-community/react";
+
+function App() {
+  const { setLayout, layouts, currentLayout } = useLayouts(roomSession);
+  return (
+    <>
+      {currentLayout && (
+        <select
+          value={currentLayout}
+          onChange={(e) => {
+            setLayout({ name: e.target.value });
+          }}
+        >
+          {layouts.map((l) => (
+            <option>{l}</option>
+          ))}
+        </select>
+      )}
+    </>
+  );
+}
+```
+
+### usePermissions
+
+Parses the list of permissions given to the user in the room session, and returns an object that can be used to make UI decisions.
+
+For example, if a permission is mentioned in the docs as `"room.member.audio_mute"`, its status is available as the boolean `P?.member?.audio_mute`. It is wise to use optional chaining in these cases, as `P` is **`null`** before it receives the Room Session object, and `member` can be **`false`** at times if the user doesn't have any member permissions at all.
+
+```jsx
+import { Video, useMembers, usePermissions } from "@signalwire-community/react";
+
+function App() {
+  const P = usePermissions(roomSession);
+  const { self, members } = useMembers(roomSession);
+
+  return members.map((m) => (
+    <button
+      onClick={() => {
+        if (m === self) m.remove();
+        else {
+          if (P?.member?.remove) m.remove();
+          else alert("You aren't permitted to remove " + m.name);
+        }
+      }}
+    >
+      Remove {m.name}
+    </button>
+  ));
+}
+```
+
+### useScreenShare
+
+This hook takes a Room Session, and gives simple controls to start and stop screen sharing for a user.
+
+```jsx
+import { usePermissions, useScreenShare } from "@signalwire-community/react";
+
+function App() {
+  const P = usePermissions(roomSession);
+  const { toggle, active } = useScreenShare(roomSession);
+  return (
+      {P?.self?.screenshare && (
+        <button onClick={() => toggle()}>{active ? "Stop" : "Start"}</button>
+      )}
+  );
+}
+
+```
