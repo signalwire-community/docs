@@ -39,6 +39,9 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          remarkPlugins: [
+            [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
+          ],
         },
         blog: false,
         theme: {
@@ -59,12 +62,7 @@ const config = {
           srcDark: "img/logo_white.png",
         },
         items: [
-          {
-            type: "doc",
-            docId: "index",
-            position: "left",
-            label: "Libraries",
-          },
+          { to: "/docs", label: "Libraries", position: "left" },
           {
             href: "https://github.com/signalwire-community",
             label: "GitHub",
