@@ -31,6 +31,10 @@ function App() {
 
 ### useMembers
 
+```jsx
+const { self, members, removeAll } = useMembers(roomSession);
+```
+
 `useMembers` maintains a list of all members in the rooms session, a reference to the current member, and a function to remove everyone. Some methods and properties are added to each member object so you can control their state and presence. Eg. `members.find(m=>m.name==="jane")?.audio.mute()` or `!self.video.muted ? "Now you see me" : "Now you don't"`
 
 ```jsx
@@ -51,6 +55,10 @@ function App() {
 
 ### useStatus
 
+```jsx
+const { active } = useStatus(roomSession);
+```
+
 This hook takes a Room Session, and returns an object with its status information. The `active` property is true as long as the client is connected to the Room Session.
 
 ```jsx
@@ -66,6 +74,10 @@ function App() {
 ```
 
 ### useWebRTC
+
+```jsx
+const { microphones, cameras, speakers } = useWebRTC();
+```
 
 Maintains an up-to-date list of permitted I/O devices, and tracks it's changes (eg. when user connects his headphones). This hook does not require a Room Session as an input. This hook keeps a list of cameras, microphones, and speakers by default. If you don't need to access camera at all, pass `{camera:false}`. Same for microphone and speaker.
 
@@ -91,6 +103,10 @@ function App() {
 <!-- Sort in alphanumeric order -->
 
 ### useLayouts
+
+```jsx
+const { setLayout, layouts, currentLayout } = useLayouts(roomSession);
+```
 
 Given an active RoomSession, `useLayouts` maintains a list of all video layouts enabled in the room, the current layout, and a function to change between them.
 
@@ -120,6 +136,10 @@ function App() {
 
 ### usePermissions
 
+```jsx
+const P = usePermissions(roomSession);
+```
+
 Parses the list of permissions given to the user in the room session, and returns an object that can be used to make UI decisions.
 
 For example, if a permission is mentioned in the docs as `"room.member.audio_mute"`, its status is available as the boolean `P?.member?.audio_mute`. It is wise to use optional chaining in these cases, as `P` is **`null`** before it receives the Room Session object, and `member` can be **`false`** at times if the user doesn't have any member permissions at all.
@@ -148,6 +168,10 @@ function App() {
 ```
 
 ### useScreenShare
+
+```jsx
+const { toggle, active } = useScreenShare(roomSession);
+```
 
 This hook takes a Room Session, and gives simple controls to start and stop screen sharing for a user.
 
