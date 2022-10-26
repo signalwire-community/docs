@@ -53,9 +53,7 @@ _None_
 
 **Examples**
 
-> Answer an inbound call and check if it was successful.
-
-```php
+```php title="Answer an inbound call and check if it was successful."
 <?php
 
 $call->answer()->done(function($answerResult) {
@@ -93,9 +91,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Try connecting by calling `+18991114444` and `+18991114445` in series.
-
-```php
+```php title="Try connecting by calling '+18991114444' and '+18991114445' in series."
 <?php
 
 $devices = [
@@ -109,9 +105,7 @@ $call->connect(...$devices)->done(function($connectResult) {
 });
 ```
 
-> Combine serial and parallel calling. Call `+18991114443` first and - if it doesn't answer - try calling in parallel `+18991114444` and `+18991114445`. If none of the devices answer, continue the same process with `+18991114446` and `+18991114447`.
-
-```php
+```php title="Combine serial and parallel calling. Call '+18991114443' first and - if it doesn't answer - try calling in parallel '+18991114444' and '+18991114445'. If none of the devices answer, continue the same process with '+18991114446' and '+18991114447'."
 <?php
 
 $devices = [
@@ -131,9 +125,7 @@ $call->connect(...$devices)->done(function($connectResult) {
   }
 });
 ```
-> Try connecting by calling `+18991114444` and `+18991114445` in series playing the US ringtone.
-
-```php
+```php title="Try connecting by calling '+18991114444' and '+18991114445' in series playing the US ringtone."
 <?php
 
 $params = [
@@ -166,9 +158,7 @@ See [`connect`](php/reference/relay_calling/call.mdx#connect) for the parameter 
 
 **Examples**
 
-> Trying to connect a call by calling in series `+18991114444` and `+18991114445`.
-
-```php
+```php title="Trying to connect a call by calling in series '+18991114444' and '+18991114445'."
 <?php
 
 $devices = [
@@ -233,9 +223,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Detect a machine with custom parameters and timeout.
-
-```php
+```php title="Detect a machine with custom parameters and timeout."
 <?php
 
 $params = [
@@ -251,9 +239,7 @@ $call->detect($params)->done(function($detectResult) {
 });
 ```
 
-> Detect a Fax setting timeout only.
-
-```php
+```php title="Detect a Fax setting timeout only."
 <?php
 
 $params = [
@@ -283,9 +269,7 @@ See [`detect`](php/reference/relay_calling/call.mdx#detect) for the parameter li
 
 **Examples**
 
-> Detect digits using default parameters. Stop the action immediately.
-
-```php
+```php title="Detect digits using default parameters. Stop the action immediately."
 <?php
 
 $call->on('detect.update', function ($call, $params) {
@@ -324,9 +308,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Perform an AMD and wait until the _machine_ is ready.
-
-```php
+```php title="Perform an AMD and wait until the machine is ready."
 <?php
 
 $params = [
@@ -355,9 +337,7 @@ See [`detectAnsweringMachine`](#detectansweringmachine) for the parameter list.
 
 **Examples**
 
-> Perform an asynchronous AMD on the call. Then stop the action if not completed yet.
-
-```php
+```php title="Perform an asynchronous AMD on the call. Then stop the action if not completed yet."
 <?php
 
 $call->on('detect.update', function ($call, $params) {
@@ -392,9 +372,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Detect digits and then write a log with the result.
-
-```php
+```php title="Detect digits and then write a log with the result."
 <?php
 
 $call->detectDigit()->done(function($detectResult) {
@@ -420,9 +398,7 @@ See [`detectDigit`](php/reference/relay_calling/call.mdx#detectdigit) for the pa
 
 **Examples**
 
-> Detect only `1-3` digits asynchronously.
-
-```php
+```php title="Detect only '1-3' digits asynchronously."
 <?php
 
 $call->on('detect.update', function ($call, $params) {
@@ -457,9 +433,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Detect fax on the current call.
-
-```php
+```php title="Detect fax on the current call."
 <?php
 
 $call->detectFax()->done(function($detectResult) {
@@ -485,9 +459,7 @@ See [`detectFax`](php/reference/relay_calling/call.mdx#detectfax) for the parame
 
 **Examples**
 
-> Detect fax on the current call. Stop the action immediately.
-
-```php
+```php title="Detect fax on the current call. Stop the action immediately."
 <?php
 
 $call->on('detect.update', function ($call, $params) {
@@ -526,9 +498,7 @@ This is a helper function that refines the use of [`detect`](php/reference/relay
 
 **Examples**
 
-> Detect a human on the current call.
-
-```php
+```php title="Detect a human on the current call."
 <?php
 
 $call->detectHuman()->done(function($detectResult) {
@@ -554,9 +524,7 @@ See [`detectHuman`](php/reference/relay_calling/call.mdx#detecthuman) for the pa
 
 **Examples**
 
-> Detect a human on the current call. Stop the action immediately.
-
-```php
+```php title="Detect a human on the current call. Stop the action immediately."
 <?php
 
 $call->detectHumanAsync()->done(function ($detectAction) {
@@ -589,9 +557,7 @@ This is a helper function that refines the use of [`detect`](php/reference/relay
 
 **Examples**
 
-> Detect a machine on the current call.
-
-```php
+```php title="Detect a machine on the current call."
 <?php
 
 $call->detectMachine()->done(function($detectResult) {
@@ -617,9 +583,7 @@ See [`detectMachine`](php/reference/relay_calling/call.mdx#detectmachine) for th
 
 **Examples**
 
-> Detect a machine on the current call. Stop the action immediately.
-
-```php
+```php title="Detect a machine on the current call. Stop the action immediately."
 <?php
 
 $call->detectMachineAsync()->done(function ($detectAction) {
@@ -668,9 +632,7 @@ _None_
 
 **Examples**
 
-> Receiving a fax on the call and print logs for URL and number of received pages.
-
-```php
+```php title="Receiving a fax on the call and print logs for URL and number of received pages."
 <?php
 
 $call->faxReceive()->done(function($faxResult) {
@@ -695,9 +657,7 @@ _None_
 
 **Examples**
 
-> Trying to receive a fax and then stop it.
-
-```php
+```php title="Trying to receive a fax and then stop it."
 <?php
 
 $call->faxReceiveAsync()->done(function ($faxAction) {
@@ -726,9 +686,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Sending a fax on the call and print logs the number of sent pages.
-
-```php
+```php title="Sending a fax on the call and print logs the number of sent pages."
 <?php
 
 $call->faxSend('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', null, 'Custom Header')->done(function($faxResult) {
@@ -753,9 +711,7 @@ See [`faxSend`](php/reference/relay_calling/call.mdx#faxsend) for the parameter 
 
 **Examples**
 
-> Trying to send a fax and then stop it.
-
-```php
+```php title="Trying to send a fax and then stop it."
 <?php
 
 $call->faxSendAsync('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', null, 'Custom Header')->done(function ($faxAction) {
@@ -780,9 +736,7 @@ _None_
 
 **Examples**
 
-> Hangup the current call and check if it was successful.
-
-```php
+```php title="Hangup the current call and check if it was successful."
 <?php
 
 $call->hangup()->done(function($hangupResult) {
@@ -811,9 +765,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Subscribe to the `answered` and `ended` events for a given call.
-
-```php
+```php title="Subscribe to the 'answered' and 'ended' events for a given call."
 <?php
 
 $call->on('ended', function($call) {
@@ -840,9 +792,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Subscribe to the call `ended` state change and then, remove the event handler.
-
-```php
+```php title="Subscribe to the call 'ended' state change and then, remove the event handler."
 <?php
 
 $callback = function($call) {
@@ -909,9 +859,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Play multiple media elements in the call.
-
-```php
+```php title="Play multiple media elements in the call."
 <?php
 
 $params = [
@@ -946,9 +894,7 @@ See [`play`](#play) for the parameter list.
 
 **Examples**
 
-> Play multiple media elements in the call and then stop it.
-
-```php
+```php title="Play multiple media elements in the call and then stop it."
 <?php
 
 $params = [
@@ -986,9 +932,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Play an Mp3 file using the signature with a `string` as parameter.
-
-```php
+```php title="Play an Mp3 file using the signature with a 'string' as parameter."
 <?php
 
 $call->playAudio('https://cdn.signalwire.com/default-music/welcome.mp3')->done(function($playResult) {
@@ -996,9 +940,7 @@ $call->playAudio('https://cdn.signalwire.com/default-music/welcome.mp3')->done(f
 });
 ```
 
-> Play an Mp3 file setting volume level to 4dB. _Require v2.3+_
-
-```php
+```php title="Play an Mp3 file setting volume level to 4dB. Require v2.3+."
 <?php
 
 $params = [
@@ -1026,9 +968,7 @@ See [`playAudio`](php/reference/relay_calling/call.mdx#playaudio) for the parame
 
 **Examples**
 
-> Play an Mp3 file and stop it after 5 seconds.
-
-```php
+```php title="Play an Mp3 file and stop it after 5 seconds."
 <?php
 
 $call->playAudioAsync('https://cdn.signalwire.com/default-music/welcome.mp3')->done(function($playAction) {
@@ -1037,9 +977,7 @@ $call->playAudioAsync('https://cdn.signalwire.com/default-music/welcome.mp3')->d
 });
 ```
 
-> Play an Mp3 file setting the volume and stop it after 5 seconds.
-
-```php
+```php title="Play an Mp3 file setting the volume and stop it after 5 seconds."
 <?php
 
 $params = [
@@ -1073,9 +1011,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Play a single US ringtone.
-
-```php
+```php title="Play a single US ringtone."
 <?php
 
 $params = [ 'name' => 'us' ];
@@ -1100,9 +1036,7 @@ See [`playRingtone`](php/reference/relay_calling/call.mdx#playringtone) for the 
 
 **Examples**
 
-> Play US ringtone for 30 seconds, if _Agent_ is available, stop the play.
-
-```php
+```php title="Play US ringtone for 30 seconds, if 'Agent' is available, stop the play."
 <?php
 
 $params = [ 'name' => 'us', 'duration' => 30 ];
@@ -1132,9 +1066,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Play silence for 10 seconds.
-
-```php
+```php title="Play silence for 10 seconds."
 <?php
 
 $call->playSilence(10)->done(function($playResult) {
@@ -1158,9 +1090,7 @@ See [`playSilence`](php/reference/relay_calling/call.mdx#playsilence) for the pa
 
 **Examples**
 
-> Play silence for 60 seconds, if _Agent_ is available, stop the play.
-
-```php
+```php title="Play silence for 60 seconds, if 'Agent' is available, stop the play."
 <?php
 
 $call->playSilenceAsync(60)->done(function($playAction) use ($globalAgent) {
@@ -1193,9 +1123,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Play TTS.
-
-```php
+```php title="Play TTS."
 <?php
 
 $params = [ 'text' => 'Welcome to SignalWire!' ];
@@ -1220,9 +1148,7 @@ See [`playTTS`](php/reference/relay_calling/call.mdx#playtts) for the parameter 
 
 **Examples**
 
-> Play TTS and stop it after 5 seconds.
-
-```php
+```php title="Play TTS and stop it after 5 seconds."
 <?php
 
 $params = [ 'text' => 'Welcome to SignalWire!' ];
@@ -1276,9 +1202,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Ask user to enter their PIN and collect the digits.
-
-```php
+```php title="Ask user to enter their PIN and collect the digits."
 <?php
 
 $mediaToPlay = [
@@ -1314,9 +1238,7 @@ See [`prompt`](php/reference/relay_calling/call.mdx#prompt) for the parameter li
 
 **Examples**
 
-> Ask user to enter their PIN and collect the digits.
-
-```php
+```php title="Ask user to enter their PIN and collect the digits."
 <?php
 
 $mediaToPlay = [
@@ -1358,9 +1280,7 @@ You can set all the properties that [`prompt`](php/reference/relay_calling/call.
 
 **Examples**
 
-> Collect user's digits while playing an Mp3 file.
-
-```php
+```php title="Collect user's digits while playing an Mp3 file."
 <?php
 
 $collect = [
@@ -1392,9 +1312,7 @@ See [`promptAudio`](php/reference/relay_calling/call.mdx#promptaudio) for the pa
 
 **Examples**
 
-> Ask user to enter their PIN and collect the digits.
-
-```php
+```php title="Ask user to enter their PIN and collect the digits."
 <?php
 
 $collect = [
@@ -1431,9 +1349,7 @@ You can set all the properties that [`prompt`](php/reference/relay_calling/call.
 
 **Examples**
 
-> Play US ringtone for 30 seconds while collect digits.
-
-```php
+```php title="Play US ringtone for 30 seconds while collect digits."
 <?php
 
 $params = [
@@ -1466,9 +1382,7 @@ See [`promptRingtone`](php/reference/relay_calling/call.mdx#promptringtone) for 
 
 **Examples**
 
-> Play US ringtone for 30 seconds while collect digits in asynchronous.
-
-```php
+```php title="Play US ringtone for 30 seconds while collect digits in asynchronous."
 <?php
 
 $collect = [
@@ -1508,9 +1422,7 @@ You can set all the properties that [`prompt`](php/reference/relay_calling/call.
 
 **Examples**
 
-> Ask user to enter their PIN and collect the digits.
-
-```php
+```php title="Ask user to enter their PIN and collect the digits."
 <?php
 
 $collect = [
@@ -1542,9 +1454,7 @@ See [`promptTTS`](php/reference/relay_calling/call.mdx#prompttts) for the parame
 
 **Examples**
 
-> Ask user to enter their PIN and collect the digits.
-
-```php
+```php title="Ask user to enter their PIN and collect the digits."
 <?php
 
 $collect = [
@@ -1585,9 +1495,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Start recording audio in the call for both direction in stereo mode, if successful, grab `url`, `duration` and `size` from the RecordResult object.
-
-```php
+```php title="Start recording audio in the call for both direction in stereo mode, if successful, grab 'url', 'duration' and 'size' from the RecordResult object."
 <?php
 
 $params = [
@@ -1619,9 +1527,7 @@ See [`record`](php/reference/relay_calling/call.mdx#record) for the parameter li
 
 **Examples**
 
-> Start recording audio in the call for both direction in stereo mode and then stop it using the RecordAction object.
-
-```php
+```php title="Start recording audio in the call for both direction in stereo mode and then stop it using the RecordAction object."
 <?php
 
 $params = [
@@ -1652,9 +1558,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Send some digits.
-
-```php
+```php title="Send some digits."
 <?php
 
 $call->sendDigits('123')->done(function($result) {
@@ -1680,9 +1584,7 @@ See [`sendDigits`](php/reference/relay_calling/call.mdx#senddigits) for the para
 
 **Examples**
 
-> Send some digits and then check if the operation is completed using the _SendDigitsAction_ object.
-
-```php
+```php title="Send some digits and then check if the operation is completed using the SendDigitsAction object."
 <?php
 
 $call->sendDigitsAsync('123')->done(function($action) {
@@ -1730,9 +1632,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Tapping audio from the call, if successful, print both source and destination devices from the `TapResult` object.
-
-```php
+```php title="Tapping audio from the call, if successful, print both source and destination devices from the TapResult object."
 <?php
 
 $tap = [
@@ -1765,9 +1665,7 @@ See [`tap`](php/reference/relay_calling/call.mdx#tap) for the parameter list.
 
 **Examples**
 
-> Tapping audio from the call and then stop it using the `TapAction` object.
-
-```php
+```php title="Tapping audio from the call and then stop it using the TapAction object."
 <?php
 
 $tap = [
@@ -1800,9 +1698,7 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Examples**
 
-> Wait for _ending_ or _ended_ events.
-
-```php
+```php title="Wait for 'ending' or 'ended' events."
 <?php
 
 $call->waitFor('ending', 'ended')->done(function($success) {
@@ -1828,9 +1724,7 @@ _None_
 
 **Examples**
 
-> Wait for the _answered_ event.
-
-```php
+```php title="Wait for the 'answered' event."
 <?php
 
 $call->waitForAnswered()->done(function($success) {
@@ -1856,9 +1750,7 @@ _None_
 
 **Examples**
 
-> Wait for the _ended_ event.
-
-```php
+```php title="Wait for the 'ended' event."
 <?php
 
 $call->waitForEnded()->done(function($success) {
@@ -1884,9 +1776,7 @@ _None_
 
 **Examples**
 
-> Wait for the _ending_ event.
-
-```php
+```php title="Wait for the 'ending' event."
 <?php
 
 $call->waitForEnding()->done(function($success) {
@@ -1912,9 +1802,7 @@ _None_
 
 **Examples**
 
-> Wait for _ending_ or _ended_ events.
-
-```php
+```php title="Wait for 'ending' or 'ended' events."
 <?php
 
 $call->waitForRinging()->done(function($success) {

@@ -26,9 +26,7 @@ _None_
 
 **Examples**
 
-> Start faxing and then check the direction.
-
-```php
+```php title="Start faxing and then check the direction."
 <?php
 
 $call->faxSend('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')->done(function($result) {
@@ -54,9 +52,7 @@ _None_
 
 **Examples**
 
-> Send a document and then inspect the last received Relay event.
-
-```php
+```php title="Send a document and then inspect the last received Relay event."
 <?php
 
 $call->faxSend('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')->done(function($result) {
@@ -82,9 +78,7 @@ _None_
 
 **Examples**
 
-> Receiving fax and print the URL of the document.
-
-```php
+```php title="Receiving fax and print the URL of the document."
 <?php
 
 $call->faxReceive()->done(function($result) {
@@ -110,9 +104,7 @@ _None_
 
 **Examples**
 
-> Receiving fax and print the identity.
-
-```php
+```php title="Receiving fax and print the identity."
 <?php
 
 $call->faxReceive()->done(function($result) {
@@ -138,9 +130,7 @@ _None_
 
 **Examples**
 
-> Receiving fax and print the number of received pages.
-
-```php
+```php title="Receiving fax and print the number of received pages."
 <?php
 
 $call->faxReceive()->done(function($result) {
@@ -166,9 +156,7 @@ _None_
 
 **Examples**
 
-> Receiving fax and print the remote identity.
-
-```php
+```php title="Receiving fax and print the remote identity."
 <?php
 
 $call->faxReceive()->done(function($result) {
@@ -194,9 +182,7 @@ _None_
 
 **Examples**
 
-> Start sending a document and then check if it has sent successfully.
-
-```php
+```php title="Start sending a document and then check if it has sent successfully."
 <?php
 
 $call->faxSend('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')->done(function($result) {

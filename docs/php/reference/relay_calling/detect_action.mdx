@@ -26,9 +26,7 @@ _None_
 
 **Examples**
 
-> Start a detector and print the controlId.
-
-```php
+```php title="Start a detector and print the controlId."
 <?php
 
 $call->detectMachineAsync()->done(function ($action) {
@@ -52,9 +50,7 @@ _None_
 
 **Examples**
 
-> Start a detector and print out the payload.
-
-```php
+```php title="Start a detector and print out the payload."
 <?php
 
 $call->detectDigitAsync()->done(function($detectResult) {
@@ -78,9 +74,7 @@ _None_
 
 **Examples**
 
-> Trying detecting DTMF and grab the result when it's completed.
-
-```php
+```php title="Trying detecting DTMF and grab the result when it's completed."
 <?php
 
 $call->detectDigitAsync()->done(function($action) {
@@ -107,9 +101,7 @@ _None_
 
 **Examples**
 
-> Trying detecting DTMF and check if it has finished.
-
-```php
+```php title="Trying detecting DTMF and check if it has finished."
 <?php
 
 $call->detectDigitAsync()->done(function($action) {
@@ -136,9 +128,7 @@ _None_
 
 **Examples**
 
-> Trying detecting a machine and then stop the action.
-
-```php
+```php title="Trying detecting a machine and then stop the action."
 <?php
 
 $call->detectMachineAsync()->done(function ($action) {

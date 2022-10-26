@@ -26,9 +26,7 @@ _None_
 
 **Examples**
 
-> Detect digits and grab the result when it's completed.
-
-```php
+```php title="Detect digits and grab the result when it's completed."
 <?php
 
 $call->detectDigit()->done(function($result) {
@@ -53,9 +51,7 @@ _None_
 
 **Examples**
 
-> Detect DTMF and print out the result.
-
-```php
+```php title="Detect DTMF and print out the result."
 <?php
 
 $call->detectDigit()->done(function($result) {
@@ -81,9 +77,7 @@ _None_
 
 **Examples**
 
-> Check the type of a detector.
-
-```php
+```php title="Check the type of a detector."
 <?php
 
 $call->detectFax()->done(function($result) {
@@ -109,9 +103,7 @@ _None_
 
 **Examples**
 
-> Start detecting a fax, then check if a `fax` has been detected.
-
-```php
+```php title="Start detecting a fax, then check if a 'fax' has been detected."
 <?php
 
 $call->detectFax()->done(function($result) {

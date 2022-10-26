@@ -8,9 +8,9 @@ A Relay Consumer is a simple PHP class that runs in its own process along side y
 
 ## Creating Consumers
 
-A Relay Consumer is a simple object, customized by specifying [contexts](php/reference/intro.mdx#contexts) and event handlers to respond to incoming events.
+A Relay Consumer is a simple object, customized by specifying [contexts](php/index.mdx#contexts) and event handlers to respond to incoming events.
 
-A consumer has 2 required properties: `project`, `token`, and usually requires at least one `contexts` for incoming events. Project and Token are used to authenticate your Consumer to your SignalWire account. Contexts are a list of contexts you want this Consumer to listen for. [Learn more about Contexts](php/reference/intro.mdx#contexts).
+A consumer has 2 required properties: `project`, `token`, and usually requires at least one `contexts` for incoming events. Project and Token are used to authenticate your Consumer to your SignalWire account. Contexts are a list of contexts you want this Consumer to listen for. [Learn more about Contexts](php/index.mdx#contexts).
 
 ```php
 <?php
@@ -42,9 +42,7 @@ Since the Relay PHP SDK is built on top of [ReactPHP](https://reactphp.org/), a 
 
 If you are familiar with Javascript, `yield` is similar to the `async/await` syntax in JS.
 
-> Difference between using and not using yield with a Promise.
-
-```php
+```php title="Difference between using and not using yield with a Promise."
 <?php
   public function onIncomingCall($call): Coroutine {
     // Without using yield
