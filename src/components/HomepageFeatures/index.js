@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 const FeatureList = [
   {
     title: "Open Source",
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
+    Svg: require("@site/static/img/software_developer.svg").default,
     description: (
       <>
         SignalWire Community libraries are Open Source. Contributions are
@@ -14,22 +14,22 @@ const FeatureList = [
     ),
   },
   {
-    title: "Focus on What Matters",
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
+    title: "Write Less Code",
+    Svg: require("@site/static/img/hot_beverage.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        SignalWire Community libraries provide you an unofficial higher-level
+        interface to SignalWire APIs.
       </>
     ),
   },
   {
-    title: "Powered by React",
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    title: "Integration",
+    Svg: require("@site/static/img/developer_activity.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Easily integrate SignalWire libraries with frameworks such as React and
+        React&nbsp;Native.
       </>
     ),
   },
