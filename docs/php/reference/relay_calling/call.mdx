@@ -8,22 +8,22 @@ All calls in SignalWire have a common generic interface, `Call`. A `Call` is a c
 
 ## Properties
 
-|    |   |   |
-| -: | - | - |
-| `id` | <span class="method-prop-type">string</span> | The unique identifier of the call. |
-| `type` | <span class="method-prop-type">string</span> | The type of call. Only `phone` is currently supported. |
-| `from` | <span class="method-prop-type">string</span> | The phone number that the call is coming from. |
-| `to` | <span class="method-prop-type">string</span> | The phone number you are attempting to call. |
-| `timeout` | <span class="method-prop-type">number</span> | The seconds the call rings before being transferred to voicemail. |
-| `state` | <span class="method-prop-type">string</span> | The current state of the call. See [`Relay.Calling.Call` State Events](#state-events) for all the possible call states. |
-| `prevState` | <span class="method-prop-type">string</span> | The previous state of the call. |
-| `context` | <span class="method-prop-type">string</span> | The context the call belongs to. |
-| `peer` | <span class="method-prop-type">[`Relay.Calling.Call`](php/reference/relay_calling/call.mdx)</span> | The call your original call is connected to. |
-| `active` | <span class="method-prop-type">boolean</span> | Whether the call is active. |
-| `ended` | <span class="method-prop-type">boolean</span> | Whether the call has ended. |
-| `answered` | <span class="method-prop-type">boolean</span> | Whether the call has been answered. |
-| `failed` | <span class="method-prop-type">boolean</span> | Whether the call has failed. |
-| `busy` | <span class="method-prop-type">boolean</span> | Whether the call was busy. |
+|             |                                                                                                    |                                                                                                                         |
+| ----------: | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+|        `id` | <span class="method-prop-type">string</span>                                                       | The unique identifier of the call.                                                                                      |
+|      `type` | <span class="method-prop-type">string</span>                                                       | The type of call. Only `phone` is currently supported.                                                                  |
+|      `from` | <span class="method-prop-type">string</span>                                                       | The phone number that the call is coming from.                                                                          |
+|        `to` | <span class="method-prop-type">string</span>                                                       | The phone number you are attempting to call.                                                                            |
+|   `timeout` | <span class="method-prop-type">number</span>                                                       | The seconds the call rings before being transferred to voicemail.                                                       |
+|     `state` | <span class="method-prop-type">string</span>                                                       | The current state of the call. See [`Relay.Calling.Call` State Events](#state-events) for all the possible call states. |
+| `prevState` | <span class="method-prop-type">string</span>                                                       | The previous state of the call.                                                                                         |
+|   `context` | <span class="method-prop-type">string</span>                                                       | The context the call belongs to.                                                                                        |
+|      `peer` | <span class="method-prop-type">[`Relay.Calling.Call`](php/reference/relay_calling/call.mdx)</span> | The call your original call is connected to.                                                                            |
+|    `active` | <span class="method-prop-type">boolean</span>                                                      | Whether the call is active.                                                                                             |
+|     `ended` | <span class="method-prop-type">boolean</span>                                                      | Whether the call has ended.                                                                                             |
+|  `answered` | <span class="method-prop-type">boolean</span>                                                      | Whether the call has been answered.                                                                                     |
+|    `failed` | <span class="method-prop-type">boolean</span>                                                      | Whether the call has failed.                                                                                            |
+|      `busy` | <span class="method-prop-type">boolean</span>                                                      | Whether the call was busy.                                                                                              |
 
 ## Methods
 
@@ -70,20 +70,20 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `devices` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | One or more arrays with the structure below.<br/>_Nested depends on whether to dial in serial or parallel._ |
+|            |                                             |                                            |                                                                                                                                            |
+| ---------- | ------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `$params`  | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties:                                                                                                       |
+| `devices`  | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | One or more arrays with the structure below.<br/>_Nested depends on whether to dial in serial or parallel._                                |
 | `ringback` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Ringback audio to play to call leg. You can play _audio_, _tts_, _silence_ or _ringtone_. See [`play` media parameter](#play) for details. |
 
-* Structure of a device:
+- Structure of a device:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The device type. Only `phone` is currently supported. |
-| `from` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The party the call is coming from. <br/>_If not provided, the SDK will use the `from` of the originator call.<br/>Must be a SignalWire number or SIP endpoint that you own._ |
-| `to` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The party you are attempting to connect with. |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | The time, in seconds, the call will ring before going to voicemail. |
+|           |                                              |                                            |                                                                                                                                                                              |
+| --------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The device type. Only `phone` is currently supported.                                                                                                                        |
+| `from`    | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The party the call is coming from. <br/>_If not provided, the SDK will use the `from` of the originator call.<br/>Must be a SignalWire number or SIP endpoint that you own._ |
+| `to`      | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The party you are attempting to connect with.                                                                                                                                |
+| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | The time, in seconds, the call will ring before going to voicemail.                                                                                                          |
 
 **Returns**
 
@@ -125,6 +125,7 @@ $call->connect(...$devices)->done(function($connectResult) {
   }
 });
 ```
+
 ```php title="Try connecting by calling '+18991114444' and '+18991114445' in series playing the US ringtone."
 <?php
 
@@ -185,37 +186,37 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
+|           |                                             |                                            |                                      |
+| --------- | ------------------------------------------- | ------------------------------------------ | ------------------------------------ |
 | `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
 
-* To detect an answering machine:
+- To detect an answering machine:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `machine` |
+|                           |                                               |                                            |                                                                                        |
+| ------------------------- | --------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `type`                    | <span class="method-prop-type">string</span>  | <span class="required-arg">required</span> | `machine`                                                                              |
+| `timeout`                 | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._                         |
+| `wait_for_beep`           | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
+| `initial_timeout`         | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._   |
+| `end_silence_timeout`     | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._                  |
+| `machine_voice_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._            |
+| `machine_words_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._                 |
+
+- To detect digits:
+
+|           |                                              |                                            |                                                                |
+| --------- | -------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
+| `type`    | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `digit`                                                        |
 | `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `wait_for_beep` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._ |
-| `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._ |
-| `machine_voice_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._ |
-| `machine_words_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._ |
+| `digits`  | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The digits to detect.<br/>_Defaults to "0123456789#\*"._       |
 
-* To detect digits:
+- To detect a fax:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `digit` |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `digits` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The digits to detect.<br/>_Defaults to "0123456789#*"._ |
-
-* To detect a fax:
-
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `fax` |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `tone` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The fax tone to detect: `CED` or `CNG`.<br/>_Defaults to "CED"._ |
+|           |                                              |                                            |                                                                  |
+| --------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------- |
+| `type`    | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `fax`                                                            |
+| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._   |
+| `tone`    | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The fax tone to detect: `CED` or `CNG`.<br/>_Defaults to "CED"._ |
 
 **Returns**
 
@@ -292,15 +293,15 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `wait_for_beep` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._ |
-| `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._ |
-| `machine_voice_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._ |
-| `machine_words_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._ |
+|                           |                                               |                                            |                                                                                        |
+| ------------------------- | --------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `$params`                 | <span class="method-prop-type">array</span>   | <span class="optional-arg">optional</span> | Array with the following properties:                                                   |
+| `timeout`                 | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._                         |
+| `wait_for_beep`           | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
+| `initial_timeout`         | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._   |
+| `end_silence_timeout`     | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._                  |
+| `machine_voice_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._            |
+| `machine_words_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._                 |
 
 **Returns**
 
@@ -360,11 +361,11 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
+|           |                                              |                                            |                                                                |
+| --------- | -------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
+| `$params` | <span class="method-prop-type">array</span>  | <span class="optional-arg">optional</span> | Array with the following properties:                           |
 | `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `digits` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The digits to detect.<br/>_Defaults to "0123456789#*"._ |
+| `digits`  | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The digits to detect.<br/>_Defaults to "0123456789#\*"._       |
 
 **Returns**
 
@@ -421,11 +422,11 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `tone` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The fax tone to detect: `CED` or `CNG`.<br/>_Defaults to "CED"._ |
+|           |                                              |                                            |                                                                  |
+| --------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------- |
+| `$params` | <span class="method-prop-type">array</span>  | <span class="optional-arg">optional</span> | Array with the following properties:                             |
+| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._   |
+| `tone`    | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | The fax tone to detect: `CED` or `CNG`.<br/>_Defaults to "CED"._ |
 
 **Returns**
 
@@ -482,15 +483,15 @@ This is a helper function that refines the use of [`detect`](php/reference/relay
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `wait_for_beep` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._ |
-| `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._ |
-| `machine_voice_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._ |
-| `machine_words_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._ |
+|                           |                                               |                                            |                                                                                        |
+| ------------------------- | --------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `$params`                 | <span class="method-prop-type">array</span>   | <span class="optional-arg">optional</span> | Array with the following properties:                                                   |
+| `timeout`                 | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._                         |
+| `wait_for_beep`           | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
+| `initial_timeout`         | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._   |
+| `end_silence_timeout`     | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._                  |
+| `machine_voice_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._            |
+| `machine_words_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._                 |
 
 **Returns**
 
@@ -541,15 +542,15 @@ This is a helper function that refines the use of [`detect`](php/reference/relay
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
-| `timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._ |
-| `wait_for_beep` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._ |
-| `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._ |
-| `machine_voice_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._ |
-| `machine_words_threshold` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._ |
+|                           |                                               |                                            |                                                                                        |
+| ------------------------- | --------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `$params`                 | <span class="method-prop-type">array</span>   | <span class="optional-arg">optional</span> | Array with the following properties:                                                   |
+| `timeout`                 | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to run the detector.<br/>_Defaults to 30.0._                         |
+| `wait_for_beep`           | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Whether to wait until the AM is ready for voicemail delivery.<br/>_Defaults to false._ |
+| `initial_timeout`         | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for initial voice before giving up.<br/>_Defaults to 4.5._   |
+| `end_silence_timeout`     | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | Number of seconds to wait for voice to finish.<br/>_Defaults to 1.0._                  |
+| `machine_voice_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many seconds of voice to decide is a _machine_.<br/>_Defaults to 1.25._            |
+| `machine_words_threshold` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How many words to count to decide is a _machine_.<br/>_Defaults to 6._                 |
 
 **Returns**
 
@@ -674,11 +675,11 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$document` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to the document to send.<br/>_PDF format only._ |
-| `$identity` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Identity to display on receiving fax.<br/>_Defaults to SignalWire DID._ |
-| `$header` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Custom string to add to header of each fax page.<br/>_Set to empty string to disable sending any header._ |
+|             |                                              |                                            |                                                                                                           |
+| ----------- | -------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| `$document` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to the document to send.<br/>_PDF format only._                                               |
+| `$identity` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Identity to display on receiving fax.<br/>_Defaults to SignalWire DID._                                   |
+| `$header`   | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Custom string to add to header of each fax page.<br/>_Set to empty string to disable sending any header._ |
 
 **Returns**
 
@@ -754,10 +755,10 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$event` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Calling.Call` Events](php/reference/relay_calling/call.mdx#events) |
-| `$handler` | <span class="method-prop-type">callable</span> | <span class="required-arg">required</span> | Handler to call when the event comes. |
+|            |                                                |                                            |                                                                                                            |
+| ---------- | ---------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `$event`   | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Calling.Call` Events](php/reference/relay_calling/call.mdx#events) |
+| `$handler` | <span class="method-prop-type">callable</span> | <span class="required-arg">required</span> | Handler to call when the event comes.                                                                      |
 
 **Returns**
 
@@ -781,9 +782,9 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$event` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Calling.Call` Events](php/reference/relay_calling/call.mdx#events) |
+|            |                                                |                                            |                                                                                                                                                                 |
+| ---------- | ---------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$event`   | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Calling.Call` Events](php/reference/relay_calling/call.mdx#events)                                                      |
 | `$handler` | <span class="method-prop-type">callable</span> | <span class="optional-arg">optional</span> | Handler to remove. <br /> _Note: `$handler` will be removed from the stack by reference so make sure to use the same reference in both `on` and `off` methods._ |
 
 **Returns**
@@ -805,7 +806,6 @@ $call->on('ended', $callback);
 $call->off('ended', $callback);
 ```
 
-
 ### play
 
 Play one or multiple media in a call and waits until the playing has ended.
@@ -816,42 +816,42 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `media` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | List of media elements to play. See below for each type. |
-| `volume` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
+|           |                                              |                                            |                                                                                                                                                                               |
+| --------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$params` | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                                                                                                                          |
+| `media`   | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | List of media elements to play. See below for each type.                                                                                                                      |
+| `volume`  | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
 
-* To play an audio file:
+- To play an audio file:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `audio` |
-| `url` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to `audio` resource to play. |
+|        |                                              |                                            |                                          |
+| ------ | -------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
+| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `audio`                                  |
+| `url`  | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to `audio` resource to play. |
 
-* To play a text to speech string:
+- To play a text to speech string:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `tts` |
-| `text` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | TTS to play. |
-| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`. |
-| `gender` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`. |
+|            |                                              |                                            |                                          |
+| ---------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
+| `type`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `tts`                                    |
+| `text`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | TTS to play.                             |
+| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`.                      |
+| `gender`   | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`. |
 
-* To play silence:
+- To play silence:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `silence` |
+|            |                                              |                                            |                             |
+| ---------- | -------------------------------------------- | ------------------------------------------ | --------------------------- |
+| `type`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `silence`                   |
 | `duration` | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | Seconds of silence to play. |
 
-* To play ringtone:
+- To play ringtone:
 
-|   |   |   |   |
-| - | - | - | - |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `ringtone` |
-| `name` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
-| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._ |
+|            |                                              |                                            |                                                                                                                       |
+| ---------- | -------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `type`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `ringtone`                                                                                                            |
+| `name`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
+| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._                                                  |
 
 **Returns**
 
@@ -920,11 +920,11 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `url` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to audio resource to play. |
-| `volume` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
+|           |                                              |                                            |                                                                                                                                                                               |
+| --------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$params` | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                                                                                                                          |
+| `url`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to audio resource to play.                                                                                                                                        |
+| `volume`  | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
 
 **Returns**
 
@@ -998,12 +998,12 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `name` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
-| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._ |
-| `volume` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
+|            |                                              |                                            |                                                                                                                       |
+| ---------- | -------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `$params`  | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                                                                  |
+| `name`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
+| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._                                                  |
+| `volume`   | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._                                      |
 
 **Returns**
 
@@ -1056,8 +1056,8 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
+|             |                                              |                                            |                             |
+| ----------- | -------------------------------------------- | ------------------------------------------ | --------------------------- |
 | `$duration` | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | Seconds of silence to play. |
 
 **Returns**
@@ -1109,13 +1109,13 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `text` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | TTS to play. |
-| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`. |
-| `gender` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`. |
-| `volume` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
+|            |                                              |                                            |                                                                                                                                                                               |
+| ---------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$params`  | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                                                                                                                          |
+| `text`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | TTS to play.                                                                                                                                                                  |
+| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`.                                                                                                                                                           |
+| `gender`   | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`.                                                                                                                                      |
+| `volume`   | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
 
 **Returns**
 
@@ -1171,30 +1171,30 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$collect` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `digits`, `speech` or `both`. |
-| `media` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | List of media elements to play. See [`play`](#play) for the array structure. |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Initial timeout in seconds. <br/>_Default to 4 seconds._ |
-| `volume` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
+|                   |                                              |                                            |                                                                                                                                                                               |
+| ----------------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$collect`        | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                                                                                                                          |
+| `type`            | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `digits`, `speech` or `both`.                                                                                                                                                 |
+| `media`           | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | List of media elements to play. See [`play`](#play) for the array structure.                                                                                                  |
+| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Initial timeout in seconds. <br/>_Default to 4 seconds._                                                                                                                      |
+| `volume`          | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | <img class="method-available-tag" src="https://img.shields.io/badge/-v2.3+-lightgrey.svg" /> Volume value between -40dB and +40dB where 0 is unchanged.<br/>_Default is `0`._ |
 
-* To collect digits:
+- To collect digits:
 
-|   |   |   |   |
-| - | - | - | - |
-| `digits_max` | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | Max digits to collect. |
+|                      |                                              |                                            |                                                                  |
+| -------------------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------- |
+| `digits_max`         | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | Max digits to collect.                                           |
 | `digits_terminators` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | DTMF digits that will end the recording. <br/>_Default not set._ |
-| `digits_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Timeout in seconds between each digit. |
+| `digits_timeout`     | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Timeout in seconds between each digit.                           |
 
-* To collect speech:
+- To collect speech:
 
-|   |   |   |   |
-| - | - | - | - |
+|                       |                                              |                                            |                                                                         |
+| --------------------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------- |
 | `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How much silence to wait for end of speech. <br/>_Default to 1 second._ |
-| `speech_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Maximum time to collect speech. <br/>_Default to 60 seconds._ |
-| `speech_language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Language to detect. <br/>_Default to `en-US`._ |
-| `speech_hints` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array of expected phrases to detect. |
+| `speech_timeout`      | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Maximum time to collect speech. <br/>_Default to 60 seconds._           |
+| `speech_language`     | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Language to detect. <br/>_Default to `en-US`._                          |
+| `speech_hints`        | <span class="method-prop-type">array</span>  | <span class="optional-arg">optional</span> | Array of expected phrases to detect.                                    |
 
 **Returns**
 
@@ -1268,8 +1268,8 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 You can set all the properties that [`prompt`](php/reference/relay_calling/call.mdx#prompt) accepts replacing `media` with:
 
-|   |   |   |   |
-| - | - | - | - |
+|       |                                              |                                            |                                          |
+| ----- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
 | `url` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Http(s) URL to `audio` resource to play. |
 
 > The SDK will build the media for you.
@@ -1338,10 +1338,10 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 You can set all the properties that [`prompt`](php/reference/relay_calling/call.mdx#prompt) accepts replacing `media` with:
 
-|   |   |   |   |
-| - | - | - | - |
-| `name` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
-| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._ |
+|            |                                              |                                            |                                                                                                                       |
+| ---------- | -------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `name`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | The name of the ringtone. See [`ringtones`](php/reference/relay_calling/call.mdx#ringtones) for the supported values. |
+| `duration` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Duration of ringtone to play.<br/>_Default to 1 ringtone iteration._                                                  |
 
 **Returns**
 
@@ -1410,11 +1410,11 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 You can set all the properties that [`prompt`](php/reference/relay_calling/call.mdx#prompt) accepts replacing `media` with:
 
-|   |   |   |   |
-| - | - | - | - |
-| `text` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Text-to-speech string to play. |
-| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`. |
-| `gender` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`. |
+|            |                                              |                                            |                                          |
+| ---------- | -------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
+| `text`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Text-to-speech string to play.           |
+| `language` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Default to `en-US`.                      |
+| `gender`   | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `male` or `female`. Default to `female`. |
 
 **Returns**
 
@@ -1478,16 +1478,16 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$params` | <span class="method-prop-type">array</span> | <span class="optional-arg">optional</span> | Array with the following properties: |
-| `beep` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Default to `false`. |
-| `stereo` | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Default to `false`. |
-| `format` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `mp3` or `wav`. <br/>_Default `mp3`._ |
-| `direction` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | `listen`, `speak` or `both`. Default to `speak`. |
-| `initial_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How long to wait in seconds until something is heard in the recording. Disable with `0`. <br/>_Default `5.0`._ |
-| `end_silence_timeout` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | How long to wait in seconds until caller has stopped speaking. Disable with `0`. <br/>_Default `1.0`._ |
-| `terminators` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | DTMF digits that will end the recording. <br/>_Default `#*`_. |
+|                       |                                               |                                            |                                                                                                                |
+| --------------------- | --------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `$params`             | <span class="method-prop-type">array</span>   | <span class="optional-arg">optional</span> | Array with the following properties:                                                                           |
+| `beep`                | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Default to `false`.                                                                                            |
+| `stereo`              | <span class="method-prop-type">boolean</span> | <span class="optional-arg">optional</span> | Default to `false`.                                                                                            |
+| `format`              | <span class="method-prop-type">string</span>  | <span class="optional-arg">optional</span> | `mp3` or `wav`. <br/>_Default `mp3`._                                                                          |
+| `direction`           | <span class="method-prop-type">string</span>  | <span class="optional-arg">optional</span> | `listen`, `speak` or `both`. Default to `speak`.                                                               |
+| `initial_timeout`     | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How long to wait in seconds until something is heard in the recording. Disable with `0`. <br/>_Default `5.0`._ |
+| `end_silence_timeout` | <span class="method-prop-type">number</span>  | <span class="optional-arg">optional</span> | How long to wait in seconds until caller has stopped speaking. Disable with `0`. <br/>_Default `1.0`._         |
+| `terminators`         | <span class="method-prop-type">string</span>  | <span class="optional-arg">optional</span> | DTMF digits that will end the recording. <br/>_Default `#*`_.                                                  |
 
 **Returns**
 
@@ -1548,8 +1548,8 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
+|           |                                              |                                            |                                |
+| --------- | -------------------------------------------- | ------------------------------------------ | ------------------------------ |
 | `$digits` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | String of DTMF digits to send. |
 
 **Returns**
@@ -1602,20 +1602,20 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$tap` | <span class="method-prop-type">array</span> | <span class="required-arg">required</span> | Array with the following properties: |
-| `audio_direction` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `listen` what the caller hears, `speak` what the caller says or `both`. |
-| `target_type` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Protocol to use: `rtp` or `ws`, defaults to `rtp`. |
-| `target_ptime` | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Packetization time in ms. It will be the same as the tapped media if not set. |
-| `codec` | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Codec to use. It will be the same as the tapped media if not set. |
+|                   |                                              |                                            |                                                                               |
+| ----------------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------- |
+| `$tap`            | <span class="method-prop-type">array</span>  | <span class="required-arg">required</span> | Array with the following properties:                                          |
+| `audio_direction` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | `listen` what the caller hears, `speak` what the caller says or `both`.       |
+| `target_type`     | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Protocol to use: `rtp` or `ws`, defaults to `rtp`.                            |
+| `target_ptime`    | <span class="method-prop-type">number</span> | <span class="optional-arg">optional</span> | Packetization time in ms. It will be the same as the tapped media if not set. |
+| `codec`           | <span class="method-prop-type">string</span> | <span class="optional-arg">optional</span> | Codec to use. It will be the same as the tapped media if not set.             |
 
-* To `tap` through RTP:
+- To `tap` through RTP:
 
-|   |   |   |   |
-| - | - | - | - |
+|               |                                              |                                            |                    |
+| ------------- | -------------------------------------------- | ------------------------------------------ | ------------------ |
 | `target_addr` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | RTP IP v4 address. |
-| `target_port` | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | RTP port. |
+| `target_port` | <span class="method-prop-type">number</span> | <span class="required-arg">required</span> | RTP port.          |
 
 <!--
 * To `tap` through WS:
@@ -1688,8 +1688,8 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
+|                            |                                                          |                                            |                                                                |
+| -------------------------- | -------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
 | `event1, event2, ..eventN` | <span class="method-prop-type">string or string[]</span> | <span class="required-arg">required</span> | One or more [`Relay.Calling.Call` State Events](#state-events) |
 
 **Returns**
@@ -1820,98 +1820,98 @@ All these events can be used to track the calls lifecycle and instruct SignalWir
 
 To track the state of a call.
 
-|  |  |
-| -: | - |
-| `stateChange` | Event dispatched when Call state changes. |
-| `created` | The call has been created in Relay. |
-| `ringing` | The call is ringing and has not yet been answered. |
-| `answered` | The call has been picked up. |
-| `ending` | The call is hanging up. |
-| `ended` | The call has ended. |
+|               |                                                    |
+| ------------: | -------------------------------------------------- |
+| `stateChange` | Event dispatched when Call state changes.          |
+|     `created` | The call has been created in Relay.                |
+|     `ringing` | The call is ringing and has not yet been answered. |
+|    `answered` | The call has been picked up.                       |
+|      `ending` | The call is hanging up.                            |
+|       `ended` | The call has ended.                                |
 
 ### Connect Events
 
 To track the connect state of a call.
 
-| | |
-| -: | - |
-| `connect.stateChange` | Event dispatched when the Call `connect` state changes. |
-| `connect.connecting` | Currently calling the phone number(s) to connect. |
-| `connect.connected` | The calls are being connected together. |
-| `connect.failed` | The last call connection attempt failed. |
+|                        |                                                                            |
+| ---------------------: | -------------------------------------------------------------------------- |
+|  `connect.stateChange` | Event dispatched when the Call `connect` state changes.                    |
+|   `connect.connecting` | Currently calling the phone number(s) to connect.                          |
+|    `connect.connected` | The calls are being connected together.                                    |
+|       `connect.failed` | The last call connection attempt failed.                                   |
 | `connect.disconnected` | The call was either never connected or the last call connection completed. |
 
 ### Play Events
 
 To track a playback state.
 
-| | |
-| -: | - |
+|                    |                                                         |
+| -----------------: | ------------------------------------------------------- |
 | `play.stateChange` | Event dispatched when the state of a `playing` changes. |
-| `play.playing` | A playback is playing on the call. |
-| `play.error` | A playback failed to start. |
-| `play.finished` | The playback has ended. |
+|     `play.playing` | A playback is playing on the call.                      |
+|       `play.error` | A playback failed to start.                             |
+|    `play.finished` | The playback has ended.                                 |
 
 ### Record Events
 
 To track a recording state.
 
-| | |
-| -: | - |
+|                      |                                                           |
+| -------------------: | --------------------------------------------------------- |
 | `record.stateChange` | Event dispatched when the state of a `recording` changes. |
-| `record.recording` | The call is being recorded. |
-| `record.no_input` | The recording failed due to _no input_. |
-| `record.finished` | The recording has finished. |
+|   `record.recording` | The call is being recorded.                               |
+|    `record.no_input` | The recording failed due to _no input_.                   |
+|    `record.finished` | The recording has finished.                               |
 
 ### Prompt Events
 
 To track a prompt state.
 
-| | |
-| -: | - |
+|          |                                             |
+| -------: | ------------------------------------------- |
 | `prompt` | The prompt action on the call has finished. |
 
 ### Fax Events
 
 To track a fax state.
 
-| | |
-| -: | - |
-| `fax.error` | Faxing failed. |
-| `fax.finished` | Faxing has finished. |
-| `fax.page` | A fax page has been sent or received. |
+|                |                                       |
+| -------------: | ------------------------------------- |
+|    `fax.error` | Faxing failed.                        |
+| `fax.finished` | Faxing has finished.                  |
+|     `fax.page` | A fax page has been sent or received. |
 
 ### Detect Events
 
 To track a detector state.
 
-| | |
-| -: | - |
-| `detect.error` | The detector has failed. |
-| `detect.finished` | The detector has finished. |
-| `detect.update` | There is a notification from the detector (eg: a new DTMF). |
+|                   |                                                             |
+| ----------------: | ----------------------------------------------------------- |
+|    `detect.error` | The detector has failed.                                    |
+| `detect.finished` | The detector has finished.                                  |
+|   `detect.update` | There is a notification from the detector (eg: a new DTMF). |
 
 ### Tap Events
 
 To track a tapping state.
 
-| | |
-| -: | - |
-| `tap.tapping` | The tap action has started on the call. |
-| `tap.finished` | Tap has finished. |
+|                |                                         |
+| -------------: | --------------------------------------- |
+|  `tap.tapping` | The tap action has started on the call. |
+| `tap.finished` | Tap has finished.                       |
 
 ### Digits Events
 
 To track a _send digits_ action state.
 
-| | |
-| -: | - |
+|                       |                        |
+| --------------------: | ---------------------- |
 | `sendDigits.finished` | Digits have been sent. |
 
 ## Ringtones
 
 Here you can find all the accepted values for the ringtone to play, based on short country codes:
 
-| | |
-| -: | - |
+|        |                                                                                                                                                              |
+| -----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name` | _at, au, bg, br, be, ch, cl, cn, cz, de, dk, ee, es, fi, fr, gr, hu, il, in, it, lt, jp, mx, my, nl, no, nz, ph, pl, pt, ru, se, sg, th, uk, us, tw, ve, za_ |

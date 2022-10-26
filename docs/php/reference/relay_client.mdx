@@ -12,10 +12,10 @@ Constructs a client object to interact with Relay.
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
+|           |                                              |                                            |                                       |
+| --------- | -------------------------------------------- | ------------------------------------------ | ------------------------------------- |
 | `project` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Project ID from your SignalWire Space |
-| `token` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Token from your SignalWire Space |
+| `token`   | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Token from your SignalWire Space      |
 
 **Examples**
 
@@ -30,10 +30,9 @@ $client = new SignalWire\Relay\Client([
 
 ## Properties
 
-|   |   |   |
-| - | - | - |
+|           |                                                                                                |                                                                |
+| --------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | `calling` | <span class="method-prop-type">[`Relay.Calling`](php/reference/relay_calling/index.mdx)</span> | Returns a `Relay.Calling` instance associated with the client. |
-
 
 ## Methods
 
@@ -83,10 +82,10 @@ Available In: <img class="method-available-tag" src="https://img.shields.io/badg
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$event` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Client` Events](#events) |
-| `$callback` | <span class="method-prop-type">function</span> | <span class="required-arg">required</span> | Callable to invoke when the event comes. |
+|             |                                                |                                            |                                                                  |
+| ----------- | ---------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------- |
+| `$event`    | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Client` Events](#events) |
+| `$callback` | <span class="method-prop-type">function</span> | <span class="required-arg">required</span> | Callable to invoke when the event comes.                         |
 
 **Returns**
 
@@ -110,9 +109,9 @@ Remove an event handler that were attached with `.on()`. If no `handler` paramet
 
 **Parameters**
 
-|   |   |   |   |
-| - | - | - | - |
-| `$event` | <span class="method-prop-type">string</span> | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Client` Events](#events) |
+|             |                                                |                                            |                                                                                                                                                                         |
+| ----------- | ---------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$event`    | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | Event name. Full list of events [`Relay.Client` Events](#events)                                                                                                        |
 | `$callback` | <span class="method-prop-type">function</span> | <span class="optional-arg">optional</span> | Callable to remove. <br /> _Note: `$callback` will be removed from the stack by reference so make sure to use the same reference in both `.on()` and `.off()` methods._ |
 
 **Returns**
@@ -138,11 +137,11 @@ $client->off('signalwire.error', $errorHandler);
 
 All available events you can attach a listener on.
 
-|  |  |
-| -: | - |
-| `signalwire.ready` | The session has been established and all other methods can now be used. |
-| `signalwire.error` | There is an error dispatch at the session level. |
-| `signalwire.socket.open` | The websocket is open. However, you have not yet been authenticated. |
-| `signalwire.socket.error` | The websocket gave an error. |
-| `signalwire.socket.message` | The client has received a message from the websocket. |
-| `signalwire.socket.close` | The websocket is closing. |
+|                             |                                                                         |
+| --------------------------: | ----------------------------------------------------------------------- |
+|          `signalwire.ready` | The session has been established and all other methods can now be used. |
+|          `signalwire.error` | There is an error dispatch at the session level.                        |
+|    `signalwire.socket.open` | The websocket is open. However, you have not yet been authenticated.    |
+|   `signalwire.socket.error` | The websocket gave an error.                                            |
+| `signalwire.socket.message` | The client has received a message from the websocket.                   |
+|   `signalwire.socket.close` | The websocket is closing.                                               |
