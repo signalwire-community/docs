@@ -142,7 +142,7 @@ const P = usePermissions(roomSession);
 
 Parses the list of permissions given to the user in the room session, and returns an object that can be used to make UI decisions.
 
-For example, if a permission is mentioned in the docs as `"room.member.audio_mute"`, its status is available as the boolean `P?.member?.audio_mute`. It is wise to use optional chaining in these cases, as `P` is **`null`** before it receives the Room Session object, and `member` can be **`false`** at times if the user doesn't have any member permissions at all.
+For example, if a permission is mentioned in the docs as `"room.member.audio_mute"`, its status is available as the boolean `P?.member?.audio_mute`. It is wise to use optional chaining in these cases, as `P` is **`null`** before it receives the Room Session object, and `P.member` can be **`false`** at times if the user doesn't have any member permissions at all.
 
 ```jsx
 import { Video, useMembers, usePermissions } from "@signalwire-community/react";
