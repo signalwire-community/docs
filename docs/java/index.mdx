@@ -1,0 +1,104 @@
+---
+sidebar_position: 0
+---
+
+# Compatibility API for Java
+
+## Getting Started
+
+An  Java API wrapper  allows for the rapid development and integration of Java-based applications with the SignalWire API.
+
+This library automates the process of consuming the Signalwire API by providing a wide range of helper methods that allow for quick development and testing.
+
+<span style={{ fontWeight: "bold" }}>Source Code:</span> <a href="https://github.com/signalwire-community/compatibility-api-java">
+  signalwire-community/compatibility-api-java
+</a>
+
+## Installation
+
+Install the library using [Maven](https://mvnrepository.com/artifact/io.github.signalwire-community):
+
+```xml
+<dependency>
+    <groupId>io.github.signalwire-community</groupId>
+    <artifactId>compatibility-api-java</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
+
+## Minimum Requirements
+
+This library supports the following Java Versions:
+
+- OpenJDK 8
+- OpenJDK 11
+- OracleJDK 8
+- OracleJDK 11
+
+## Quickstart
+----
+
+### Initialize the client
+
+```java
+// Find the project Id and the api token on your signalwire space dashboard
+// Note: Keep this information in somewhere safe in your code, this is visible to anyone that review your code
+String PROJECT_ID = "XXXXX-XXXXXX-XXXXX-XXXXXX";
+String API_TOKEN = "PTXXXXXXXXXXX";
+String SPACE_NAME = "testing"
+
+SignalWireClient client = new SignalWireClient(PROJECT_ID, API_TOKEN, SPACE_NAME);
+```
+
+Get your `PROJECT_ID` and `API_TOKEN` from your signalWire space. for more information click [Here](https://developer.signalwire.com/apis/docs/navigating-your-space)
+
+### Sending a message
+
+```java
+// Send an SMS from a phone to another number
+NewMessageResponse response = client.message().create("+14555555xx", "+134555xxxxxx", "Welcome");
+
+// get new message SID
+System.out.println(response.sid);
+```
+
+### Make a phone call
+
+```java
+// Make a phone call
+VoiceBuilder builder = new VoiceBuilder.Builder()
+    .url("xml-bin-url")
+    .to("14XXXXXXX")
+    .from("13SSSSSSXX")
+    .build();
+
+// Make the call with the create method
+Call response = client.voice().create(builder);
+System.out.println(response.getSid());
+```
+
+### Create XML bin
+The Library consist of a helper method that generates an xml string that can be used to create an XML bin on SignalWire
+
+```java
+// Create attribute for your tags for more information on xml attribute
+// Check out https://developer.signalwire.com/compatibility-api/xml/
+HashMap<String, String> attribute = new HashMap<>();
+attribute.put("voice", "woman");
+attribute.put("language", "fr-CA");
+attribute.put("loop", "5");
+
+VoiceResponse generate = new VoiceResponse.Builder()
+    .say(attribute, "Hello world")
+    .say(null, "Welcome") // without attribute the first parameter can be null
+    .build();
+
+// Preview the xml created
+System.out.println(generate.getResponse());
+
+// Create the xml on signalwire and return the URL
+Bin bin = client.xml().create("name-of-bin", generate.getResponse());
+
+// Print out the URL
+System.out.println(bin.uri);
+```
