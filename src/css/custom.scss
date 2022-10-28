@@ -36,3 +36,23 @@
   color: var(--ifm-font-color-base);
   padding: 4px 12px;
 }
+
+div.lightTable + table {
+
+  thead {
+    background-color: initial;
+  }
+
+  th {
+    border: none;
+  }
+
+  td {
+    border: none;
+  }
+
+  code {
+    background-color: initial;
+    border: none;
+  }
+}

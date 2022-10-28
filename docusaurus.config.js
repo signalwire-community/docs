@@ -45,7 +45,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
@@ -80,6 +80,8 @@ const config = {
         additionalLanguages: ["php", "java"],
       },
     }),
+
+  plugins: ["docusaurus-plugin-sass"],
 };
 
 module.exports = config;

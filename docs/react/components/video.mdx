@@ -2,6 +2,36 @@
 
 This React component lets you join and manage SignalWire Video rooms. To use this component, you need a Video Room Token obtained from the [REST API](https://developer.signalwire.com/apis/reference/create_room_token). This is different from a Video Conference Token.
 
+## Import
+
+```jsx
+import { Video } from "@signalwire-community/react";
+```
+
+## Props
+
+<div className="lightTable" />
+
+| Name                | Type                    | Default | Description                                                                                                                 |
+| :------------------ | :---------------------- | :------ | :-------------------------------------------------------------------------------------------------------------------------- |
+| `token`             | `string`                |         | The [Video Token](https://developer.signalwire.com/apis/reference/create_room_token) to use to connect to the room.         |
+| `onRoomReady`       | `(roomSession) => void` |         | Callback fired when a RoomSession object has been constructed (before the room is joined, which will happen automatically). |
+| onLayoutChanged     | `(e) => void`           |         | Callback for the `layout.changed` event.                                                                                                                            |
+| onMemberJoined      | `(e) => void`           |         | Callback for the `member.joined` event.                                                                                                                            |
+| onMemberLeft        | `(e) => void`           |         | Callback for the `member.left` event.                                                                                                                            |
+| onMemberTalking     | `(e) => void`           |         | Callback for the `member.talking` event.                                                                                                                            |
+| onMemberUpdated     | `(e) => void`           |         | Callback for the `member.updated` event.                                                                                                                            |
+| onMemberListUpdated | `(e) => void`           |         | Callback for the `memberList.updated` event.                                                                                                                            |
+| onPlaybackEnded     | `(e) => void`           |         | Callback for the `playback.ended` event.                                                                                                                            |
+| onPlaybackStarted   | `(e) => void`           |         | Callback for the `playback.started` event.                                                                                                                            |
+| onPlaybackUpdated   | `(e) => void`           |         | Callback for the `playback.updated` event.                                                                                                                            |
+| onRecordingEnded    | `(e) => void`           |         | Callback for the `recording.ended` event.                                                                                                                            |
+| onRecordingStarted  | `(e) => void`           |         | Callback for the `recording.started` event.                                                                                                                            |
+| onRecordingUpdated  | `(e) => void`           |         | Callback for the `recording.updated` event.                                                                                                                            |
+| onRoomJoined        | `(e) => void`           |         | Callback for the `room.joined` event.                                                                                                                            |
+| onRoomLeft          | `(e) => void`           |         | Callback for the `room.left` event.                                                                                                                            |
+| onRoomUpdated       | `(e) => void`           |         | Callback for the `room.updated` event.                                                                                                                            |
+
 ## Example
 
 Example usage:
