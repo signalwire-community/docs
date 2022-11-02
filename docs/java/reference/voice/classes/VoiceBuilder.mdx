@@ -1,0 +1,93 @@
+---
+sidebar_position: 0
+---
+
+# VoiceBuilder
+
+The `Builder` class used to initiate/create a voice call using the Java Wrapper Library
+
+## Usage
+
+```java
+VoiceBuilder builder = new VoiceBuilder.Builder()
+            .from("+1xxxxxxyyyy")
+            .to("sip:xxxyyyyyyy@zzzzz")
+            .url("https://linkstoxmlbim")
+            .build()
+
+Call response = voiceRepository.create(builder)
+```
+
+## Static
+
+### Builder
+
+A `Builder` class with multiple methods used to populate data need to initiate a voice call.
+
+### Methods
+
+#### url
+
+▸**url(**`String url`**)**:`Builder`
+
+The URL to handle the call. This parameter allows you to specify a webhook or different route in your code containing XML instructions for how to handle the call. This is required if ApplicationSid is not used.
+
+#### applicationSid
+
+▸**applicationSid(**`String applicationSid`**)**:`Builder`
+
+The unique identifier of the application used to handle the call. Applications can be created within your portal or via the `Create Application` endpoint and they contain a set of URLs rather than one URL, making it ideal if you want to use one configuration across many numbers. This is required if `Url` is not used.
+
+#### from
+
+▸**from(**`String phone`**)**:`Builder`
+
+The address that initiated the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
+
+#### to
+
+▸**to(**`String phone`**)**:`Builder`
+
+The address that received the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
+
+#### callerId
+
+▸**callerId(**`String callerId`**)**:`Builder`
+
+The number, in E.164 format, or identifier of the caller.
+
+#### fallbackMethod
+
+▸**fallbackMethod(**`String fallbackMethod`**)**:`Builder`
+
+Possible values: [GET, POST]
+
+Whether the request to FallbackUrl is a `GET` or a `POST`. Default is `POST`. If ApplicationSid is present, this parameter is ignored.
+
+#### fallbackUrl
+
+▸**fallbackUrl(**`String fallbackUrl`**)**:`Builder`
+
+The URL SignalWire will request if errors occur when fetching the `Url`. If `ApplicationSid` is present, this parameter is ignored.
+
+#### machineDetection
+
+▸**machineDetection(**`MachineDetection machineDetection`**)**:`Builder`
+
+**Usage**
+```java
+VoiceBuilder builder = new VoiceBuilder.Builder()
+            .machineDetection(MachineDetection.Enable)
+            .build();
+```
+
+**Possible values:** [`Enable`, `DetectMessageEnd`, `none`]
+
+Whether a human or machine picked up the call. Possible values are `Enable`, `DetectMessageEnd` and `none`.
+
+#### machineDetectionTimeout
+
+▸**machineDetectionTimeout(**`String machineDetectionTimeout`**)**:`Builder`
+
+The time SignalWire will wait for machine detection before timing out. Default is `30` seconds.
+

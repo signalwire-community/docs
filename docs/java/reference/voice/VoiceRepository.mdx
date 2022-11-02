@@ -1,0 +1,110 @@
+---
+sidebar_position: 0
+---
+
+# VoiceRepository
+
+The `VoiceRepository` contains method used to create,get, update and delete Voice calls using the Java Wrapper Library
+
+## Constructors
+
+### constructor
+
+- **new VoiceRepository(String projectId, String apiToken, String spaceName)**
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `projectId` | `String` | ProjectId gotten from your Signalwire space e.g `a10d8a9f-2166-4e82-56ff-118bc3a4840f` |
+| `apiToken` | `String` | Api token generated from your Signalwire dashboard e.g `PT9e5660c101cd140a1c93a0197640a369cf5f16975a0079c9`|
+| `spaceName` | `String` | Name of your space e.g `testing` |
+
+## Methods
+
+### calls
+▸**calls()**:`CallResponse`
+
+This method returns all the Call logs made on your SignalWire dashboard
+
+#### Returns
+`CallResponse`
+
+### calls
+▸**calls(**`CallFilter filter`**)**:`CallResponse`
+
+This method returns all the Call logs made on your SignalWire dashboard but also provides you with a `CallFilter` class to filter the result.
+
+**Parameters**
+
+|Name|Type|Description|
+|---|----|----|
+|`filter`| `CallFilter` | a class with multiple methods used to filter call logs |
+
+#### Returns
+`CallResponse`
+
+### create
+▸**create(** [VoiceBuilder]("") builder **)**:[`Call`]("")
+
+This method enables user initiate a call using the Signalwire API, the `create` method takes a `VoiceBuilder` object and creates a phone call using the URL of your xml bins or application id
+
+|Name|Type|Description|
+|---|----|----|
+|`builder`| `VoiceBuilder` | a `builder` class used to populate information to make a call |
+
+**Example**
+
+```java
+VoiceBuilder builder = new VoiceBuilder).Builder()
+                        .to("to-number")
+                        .from("from-number")
+                        .url("xml-bin-url") //Url generated after creating xml bin
+                        .build();
+
+// Make the voice call
+Call response = voiceRepository.create(builder);
+
+// print the call SID
+System.out.println(response.sid);
+```
+
+#### Returns
+`Call`
+
+### get
+▸**get(String sid)**:`Call`
+
+Returns a selected Call based on the SID provided
+
+**Parameters**
+
+|Name|Type|Description |
+|----|----| -----|
+|`sid` |`String` | unique `id` gotten after making a voice call |
+
+#### Returns
+`Call`
+
+### update
+▸**update(String sid, VoiceBuilder builder)**:`Call`
+
+Update a selected call based on the SID provided and
+
+**Parameters**
+
+|Name|Type|Description |
+|----|----| -----|
+|`sid` |`String` | unique `id` gotten after making a voice call |
+
+#### Returns
+`Call`
+
+
+### delete
+▸**delete(String sid)**:`SuccessResponse`
+
+Deletes a selected call log item
+
+#### Returns
+`SuccessResponse`
