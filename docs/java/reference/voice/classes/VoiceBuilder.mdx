@@ -89,5 +89,125 @@ Whether a human or machine picked up the call. Possible values are `Enable`, `De
 
 ▸**machineDetectionTimeout(**`String machineDetectionTimeout`**)**:`Builder`
 
+**Parameter**
+
+|Name|Type|Description|
+|---|---|---|
+|`machineDetectionTimeout` | `String` | time to wait for machine detection. Default is `30` seconds |
+
 The time SignalWire will wait for machine detection before timing out. Default is `30` seconds.
 
+
+#### method
+
+▸**method(**`String method`**)**:`Builder`
+
+**Parameter**
+
+|Name|Type|Description|
+|---|---|---|
+|`method` | `String` | method used to call the `url` parameter. Accepts `POST` or `GET` Default is `POST` |
+
+Whether the request to `Url` is a `GET` or a `POST`. Default is `POST`. Ignored if `ApplicationSid` is present.
+
+#### record
+
+▸**method(**`Boolean record`**)**:`Builder`
+
+**Parameter**
+
+|Name|Type|Description|
+|---|---|---|
+|`record` | `Boolean` | accept whether to record call or not|
+
+Whether or not to record a call. Possible values are `true` or `false`. Default is `false`.
+
+#### recordingChannels
+
+▸**method(**`Boolean recordingChannels`**)**:`Builder`
+
+**Parameter**
+
+|Name|Type|Description|
+|---|---|---|
+|`recordingChannels` | `String` | The number of channels in the recording |
+
+The number of channels in the recording. Can be `mono` (both legs of call recorded under one channel into one recording file) or `dual` (each leg of call recorded in separate channels into one recording file).
+
+#### recordingStatusCallback
+
+▸**method(**`String recordingStatusCallback`**)**:`Builder`
+
+The URL to request to when recording is available. See here for the list of parameters passed back to your endpoint.
+
+#### recordingStatusCallbackMethod
+
+▸**method(**`String recordingStatusCallbackMethod`**)**:`Builder`
+
+**Possible values**: [`GET`, `POST`]
+
+Whether the request to RecordingStatusCallback URL is a `GET` or a `POST`. Default is `POST`.
+
+#### recordingTrack
+
+▸**method(**`String recordingTrack`**)**:`Builder`
+
+Specifies whether to record the `inbound` audio to SignalWire from the called party or the `outbound` audio from SignalWire to the called party or `both` the inbound and outbound audio. Defaults to `both`.
+
+#### sipAuthUsername
+
+▸**sipAuthUsername(**`String sipAuthUsername`**)**:`Builder`
+
+The username to authenticate the caller when making an outbound SIP call.
+
+#### sipAuthPassword
+
+▸**sipAuthPassword(**`String sipAuthPassword`**)**:`Builder`
+
+The password to authenticate the caller when making an outbound SIP call.
+
+#### sendDigits
+
+▸**sendDigits(**`String digits`**)**:`Builder`
+
+The digits to press after a call is connected. Possible values are `(0-9)`, `#`, `*`, and `w`. Each `w` gives a 0.5 second pause before moving on to the next instruction.
+
+#### statusCallBack
+
+▸**statusCallBack(**`String statusCallBack`**)**:`Builder`
+The URL SignalWire will send webhooks to on every requested `StatusCallbackEvent` event. See [here](https://developer.signalwire.com/compatibility-api/xml/voice/#status-callbacks) for the list of parameters passed back to your endpoint.
+
+#### statusCallBackEvent
+
+▸**statusCallBackEvent(**`StatusCallBack statusCallBackEvent`**)**:`Builder`
+
+**usage**
+
+```java
+VoiceBuilder builder = new VoiceBuilder.Builder()
+            .statusCallBackEvent(StatusCallBack.initiated)
+            .build();
+```
+The status events that trigger a SignalWire webhook. Possible values are `initiated`, `ringing`, `answered`, and `completed`. To specify multiple events, repeat the parameter (name and value) as needed. Default is `completed`.
+
+#### statusCallbackMethod
+
+▸**statusCallbackMethod(**`String statusCallbackMethod`**)**:`Builder`
+
+**Possible values:** [`GET`, `POST`]
+
+Whether the request to `StatusCallback` URL is a `GET` or a `POST`. Default is `POST`. Ignored if `ApplicationSid` is present.
+
+#### timeout
+
+▸**timeout(**`int timeout`**)**:`Builder`
+
+The time SignalWire will wait before assuming the call has no answer. Max wait time is `600 seconds`. Default is `60 seconds`.
+
+#### trim
+
+▸**trim(**`String trim`**)**:`Builder`
+
+**Possible values:** [`trim-silence`, `do-not-trim`]
+
+Whether leading and trailing silence is trimmed from a recording. Possible values are `trim-silence` and `do-not-trim`. Default is `trim-silence`.

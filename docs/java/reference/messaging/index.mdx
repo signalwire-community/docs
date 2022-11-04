@@ -1,0 +1,26 @@
+---
+sidebar_position: 0
+---
+
+# Messaging
+
+Access the Messaging API. you can get an object of the `MessageRepository` which allows you to create and send messsages using Signalwire REST API.
+
+**Example**
+
+The following example sends a message using the Java Library
+
+```java
+String projectId = "xxxx-xxxxx-xxxxx";
+String apiToken = "PTXXXXXXXXX;
+SignalWireClient client = new SignalWireClient(projectId, apiToken, "space-name");
+
+// Get a reference of the MessageRepository Object
+MessageRepository repository = client.message();
+
+// Send an sms
+NewMessageResponse response = repository.create("+1234xxxxxx", "+1345xxxxxx", "Testing the Java Library" );
+
+// Print the Sid
+System.out.println(response.sid)
+```

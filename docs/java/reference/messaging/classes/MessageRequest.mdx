@@ -1,0 +1,23 @@
+---
+sidebar_position: 0
+---
+
+# MessageRequest
+
+An Object use to populate additional information needed to create a message
+
+## Usage
+
+```java
+MessageRequest request = new MessageRequest.Builder()
+                .to("+123xxxxyy")
+                .from("+123yyyyyzz")
+                .body("Hello Java!")
+                .mediaUrl("example.com/image.png")
+                .build();
+
+NewMessageResponse response = repository.create(request)
+
+// Print the SID
+System.out.println(response.sid)
+```

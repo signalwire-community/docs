@@ -1,0 +1,61 @@
+---
+sidebar_position: 0
+---
+
+# MessageFilter
+
+A `MessageFilter` object represents a class use to filter the list of messages on your SignalWire space
+
+## Usage
+
+```java
+MessageFilter filter = new MessageFilter.Builder()
+                .from("+123xxxxyy")
+                .pageSize(100)
+                .build();
+```
+
+## Builder
+
+The `MessageFilter` contains the static Builder class that is used to generate the list of information needed to query data.
+
+## Methods
+
+### dateSent
+
+▸**dateSent(** `String year`, `String month`, `String day`, `String range`**)**:`Builder`
+
+|Name|Type|Description|
+|---|---|---|
+|`year`| `String` | year in the format `YYYY` |
+|`month`| `String` | month in the format `MM` |
+|`day`| `String` | Day in the format `DD` |
+| `range` | `String` | range accepts value `>` and `<`. `<` to return messages sent on or before midnight of the date, while `>` to return messages sent on or after midnight of the date.|
+
+Only return messages sent on this particular date, formatted as `YYYY-MM-DD` in UTC.
+
+### from
+
+▸**from(**`String phone`**)**:`Builder`
+
+The phone number in E.164 format. For inbound messages, this will be the remote phone number who sent the message.
+
+### to
+
+▸**to(**`String phone`**)**:`Builder`
+
+The phone number in E.164 format that received the message.
+
+### status
+
+▸**status(**`MessageStatus status`**)**:`Builder`
+
+**Possible values:** [`queued`, `sending`, `sent`, `delivered`, `undelivered`, `failed`, `receiving`, `received`]
+
+Current status of the message.
+
+### pageSize
+
+▸**pageSize(**`int size`**)**:`Builder`
+
+Specify the number of results to return on a single page. The default page size is `50` and the maximum is `1000`.
