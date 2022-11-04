@@ -21,3 +21,64 @@ NewMessageResponse response = repository.create(request)
 // Print the SID
 System.out.println(response.sid)
 ```
+## Builder
+
+The `MessageRequest` contains the static Builder class that is used to generate message request needed to send a Message.
+
+## Methods
+
+### to
+
+▸**to(**`String phone`**)**:`Builder`
+
+The phone number in E.164 format that received the message.
+
+### from
+
+▸**from(**`String phone`**)**:`Builder`
+
+The phone number in E.164 format. For inbound messages, this will be the remote phone number who sent the message.
+
+### body
+
+▸**body(**`String message`**)**:`Builder`
+
+The text of the message. Up to 1600 characters long and can be null if no message was sent.
+
+### mediaUrl
+
+▸**mediaUrl(**`String url`**)**:`Builder`
+
+URL of media you wish to attach and send with the message.
+
+### applicationSid
+
+▸**applicationSid(**`String applicationSid`**)**:`Builder`
+
+The SID of a SignalWire Compatibility application used to configure the message's `MessageStatusCallback` attribute. If `ApplicationSid` and `StatusCallback` are specified, `StatusCallback` will take precedence.
+
+### mediaUrl
+
+▸**maxPrice(**`String maxPrice`**)**:`Builder`
+
+The maximum price in USD acceptable for the message to be sent
+
+### statusCallBack
+
+▸**statusCallBack(**`String statusCallBack`**)**:`Builder`
+
+A URL endpoint to receive callbacks each time the status of the message changes from `queued`, `failed`, `sent`, `delivered` or `undelivered`.
+
+### validityPeriod
+
+▸**validityPeriod(**`int validityPeriod`**)**:`Builder`
+
+The number of seconds a message will allow being queued before canceling. When sending high volume of messages, messages can sit in your sending queue.
+
+### messageServiceSid
+
+▸**messageServiceSid(**`String messageServiceSid`**)**:`Builder`
+
+If a number group was used when sending an outbound message, the number group's ID will be present. If no number group was used, the value will be null.
+
+
