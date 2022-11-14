@@ -20,59 +20,59 @@ Call response = voiceRepository.create(builder)
 
 ## Static
 
-### Builder
+## Builder
 
 A `Builder` class with multiple methods used to populate data need to initiate a voice call.
 
-### Methods
+## Methods
 
-#### url
+### url
 
-▸**url(**`String url`**)**:`Builder`
+▸**url**(String url) : Builder
 
 The URL to handle the call. This parameter allows you to specify a webhook or different route in your code containing XML instructions for how to handle the call. This is required if ApplicationSid is not used.
 
-#### applicationSid
+### applicationSid
 
-▸**applicationSid(**`String applicationSid`**)**:`Builder`
+▸**applicationSid**(String applicationSid) : Builder
 
 The unique identifier of the application used to handle the call. Applications can be created within your portal or via the `Create Application` endpoint and they contain a set of URLs rather than one URL, making it ideal if you want to use one configuration across many numbers. This is required if `Url` is not used.
 
-#### from
+### from
 
-▸**from(**`String phone`**)**:`Builder`
+▸**from**(String phone) : Builder
 
 The address that initiated the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
 
 #### to
 
-▸**to(**`String phone`**)**:`Builder`
+▸**to**(String phone) : Builder
 
 The address that received the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
 
-#### callerId
+### callerId
 
-▸**callerId(**`String callerId`**)**:`Builder`
+▸**callerId**(String callerId) : Builder
 
 The number, in E.164 format, or identifier of the caller.
 
-#### fallbackMethod
+### fallbackMethod
 
-▸**fallbackMethod(**`String fallbackMethod`**)**:`Builder`
+▸**fallbackMethod**(String fallbackMethod) : Builder
 
 Possible values: [GET, POST]
 
 Whether the request to FallbackUrl is a `GET` or a `POST`. Default is `POST`. If ApplicationSid is present, this parameter is ignored.
 
-#### fallbackUrl
+### fallbackUrl
 
-▸**fallbackUrl(**`String fallbackUrl`**)**:`Builder`
+▸**fallbackUrl**(String fallbackUrl) : Builder
 
 The URL SignalWire will request if errors occur when fetching the `Url`. If `ApplicationSid` is present, this parameter is ignored.
 
-#### machineDetection
+### machineDetection
 
-▸**machineDetection(**`MachineDetection machineDetection`**)**:`Builder`
+▸**machineDetection**(MachineDetection machineDetection) : Builder
 
 **Usage**
 ```java
@@ -85,9 +85,9 @@ VoiceBuilder builder = new VoiceBuilder.Builder()
 
 Whether a human or machine picked up the call. Possible values are `Enable`, `DetectMessageEnd` and `none`.
 
-#### machineDetectionTimeout
+### machineDetectionTimeout
 
-▸**machineDetectionTimeout(**`String machineDetectionTimeout`**)**:`Builder`
+▸**machineDetectionTimeout**(String machineDetectionTimeout) : Builder
 
 **Parameter**
 
@@ -98,9 +98,9 @@ Whether a human or machine picked up the call. Possible values are `Enable`, `De
 The time SignalWire will wait for machine detection before timing out. Default is `30` seconds.
 
 
-#### method
+### method
 
-▸**method(**`String method`**)**:`Builder`
+▸**method**(String method) : Builder
 
 **Parameter**
 
@@ -110,9 +110,9 @@ The time SignalWire will wait for machine detection before timing out. Default i
 
 Whether the request to `Url` is a `GET` or a `POST`. Default is `POST`. Ignored if `ApplicationSid` is present.
 
-#### record
+### record
 
-▸**method(**`Boolean record`**)**:`Builder`
+▸**method**(Boolean record) : Builder
 
 **Parameter**
 
@@ -122,9 +122,9 @@ Whether the request to `Url` is a `GET` or a `POST`. Default is `POST`. Ignored 
 
 Whether or not to record a call. Possible values are `true` or `false`. Default is `false`.
 
-#### recordingChannels
+### recordingChannels
 
-▸**method(**`Boolean recordingChannels`**)**:`Builder`
+▸**method**(Boolean recordingChannels) : Builder
 
 **Parameter**
 
@@ -134,13 +134,13 @@ Whether or not to record a call. Possible values are `true` or `false`. Default 
 
 The number of channels in the recording. Can be `mono` (both legs of call recorded under one channel into one recording file) or `dual` (each leg of call recorded in separate channels into one recording file).
 
-#### recordingStatusCallback
+### recordingStatusCallback
 
-▸**method(**`String recordingStatusCallback`**)**:`Builder`
+▸**method**(String recordingStatusCallback) : Builder
 
 The URL to request to when recording is available. See here for the list of parameters passed back to your endpoint.
 
-#### recordingStatusCallbackMethod
+### recordingStatusCallbackMethod
 
 ▸**method(**`String recordingStatusCallbackMethod`**)**:`Builder`
 
@@ -148,38 +148,38 @@ The URL to request to when recording is available. See here for the list of para
 
 Whether the request to RecordingStatusCallback URL is a `GET` or a `POST`. Default is `POST`.
 
-#### recordingTrack
+### recordingTrack
 
-▸**method(**`String recordingTrack`**)**:`Builder`
+▸**method**(String recordingTrack) : Builder
 
 Specifies whether to record the `inbound` audio to SignalWire from the called party or the `outbound` audio from SignalWire to the called party or `both` the inbound and outbound audio. Defaults to `both`.
 
-#### sipAuthUsername
+### sipAuthUsername
 
-▸**sipAuthUsername(**`String sipAuthUsername`**)**:`Builder`
+▸**sipAuthUsername**(String sipAuthUsername) : Builder
 
 The username to authenticate the caller when making an outbound SIP call.
 
-#### sipAuthPassword
+### sipAuthPassword
 
-▸**sipAuthPassword(**`String sipAuthPassword`**)**:`Builder`
+▸**sipAuthPassword**(String sipAuthPassword) : Builder
 
 The password to authenticate the caller when making an outbound SIP call.
 
-#### sendDigits
+### sendDigits
 
-▸**sendDigits(**`String digits`**)**:`Builder`
+▸**sendDigits**(String digits) : Builder
 
 The digits to press after a call is connected. Possible values are `(0-9)`, `#`, `*`, and `w`. Each `w` gives a 0.5 second pause before moving on to the next instruction.
 
-#### statusCallBack
+### statusCallBack
 
-▸**statusCallBack(**`String statusCallBack`**)**:`Builder`
+▸**statusCallBack**(String statusCallBack) : Builder
 The URL SignalWire will send webhooks to on every requested `StatusCallbackEvent` event. See [here](https://developer.signalwire.com/compatibility-api/xml/voice/#status-callbacks) for the list of parameters passed back to your endpoint.
 
-#### statusCallBackEvent
+### statusCallBackEvent
 
-▸**statusCallBackEvent(**`StatusCallBack statusCallBackEvent`**)**:`Builder`
+▸**statusCallBackEvent**(StatusCallBack statusCallBackEvent) : Builder
 
 **usage**
 
@@ -190,9 +190,9 @@ VoiceBuilder builder = new VoiceBuilder.Builder()
 ```
 The status events that trigger a SignalWire webhook. Possible values are `initiated`, `ringing`, `answered`, and `completed`. To specify multiple events, repeat the parameter (name and value) as needed. Default is `completed`.
 
-#### statusCallbackMethod
+### statusCallbackMethod
 
-▸**statusCallbackMethod(**`String statusCallbackMethod`**)**:`Builder`
+▸**statusCallbackMethod**(String statusCallbackMethod) : Builder
 
 **Possible values:** [`GET`, `POST`]
 
@@ -200,13 +200,13 @@ Whether the request to `StatusCallback` URL is a `GET` or a `POST`. Default is `
 
 #### timeout
 
-▸**timeout(**`int timeout`**)**:`Builder`
+▸**timeout**(int timeout) : Builder
 
 The time SignalWire will wait before assuming the call has no answer. Max wait time is `600 seconds`. Default is `60 seconds`.
 
-#### trim
+### trim
 
-▸**trim(**`String trim`**)**:`Builder`
+▸**trim**(String trim) : Builder
 
 **Possible values:** [`trim-silence`, `do-not-trim`]
 

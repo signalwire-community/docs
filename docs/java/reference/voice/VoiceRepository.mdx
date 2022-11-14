@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # VoiceRepository
 
-The `VoiceRepository` contains method used to create,get, update and delete Voice calls using the Java Wrapper Library
+The `VoiceRepository` contains method used to create,get, update and delete Voice calls using the Java Wrapper Library.
 
 ## Constructors
 
@@ -23,15 +23,15 @@ The `VoiceRepository` contains method used to create,get, update and delete Voic
 ## Methods
 
 ### calls
-▸**calls()**:`CallResponse`
+▸**calls()**: [CallResponse](java/reference/voice/classes/CallResponse.mdx)
 
-This method returns all the Call logs made on your SignalWire dashboard
+This method returns all the Call logs made on your SignalWire dashboard.
 
 #### Returns
-`CallResponse`
+[CallResponse](java/reference/voice/classes/CallResponse.mdx)
 
 ### calls
-▸**calls(**`CallFilter filter`**)**:`CallResponse`
+▸**calls**([CallFilter](java/reference/voice/classes/CallFilter.mdx) filter): [CallResponse](java/reference/voice/classes/CallResponse.mdx)
 
 This method returns all the Call logs made on your SignalWire dashboard but also provides you with a `CallFilter` class to filter the result.
 
@@ -39,19 +39,19 @@ This method returns all the Call logs made on your SignalWire dashboard but also
 
 |Name|Type|Description|
 |---|----|----|
-|`filter`| `CallFilter` | a class with multiple methods used to filter call logs |
+|`filter`| [CallFilter](java/reference/voice/classes/CallFilter.mdx) | a class with multiple methods used to filter call logs. |
 
 #### Returns
-`CallResponse`
+[CallResponse](java/reference/voice/classes/CallResponse.mdx)
 
 ### create
-▸**create(** [VoiceBuilder]("") builder **)**:[`Call`]("")
+▸**create**([VoiceBuilder](java/reference/voice/classes/VoiceBuilder.mdx) builder): [Call](java/reference/voice/classes/Call.mdx)
 
-This method enables user initiate a call using the Signalwire API, the `create` method takes a `VoiceBuilder` object and creates a phone call using the URL of your xml bins or application id
+This method enables user initiate a call using the Signalwire API, the `create` method takes a `VoiceBuilder` object and creates a phone call using the URL of your xml bins or application id.
 
 |Name|Type|Description|
 |---|----|----|
-|`builder`| `VoiceBuilder` | a `builder` class used to populate information to make a call |
+|`builder`| [VoiceBuilder](java/reference/voice/classes/VoiceBuilder.mdx) | a `builder` class used to populate information to make a call. |
 
 **Example**
 
@@ -70,41 +70,40 @@ System.out.println(response.sid);
 ```
 
 #### Returns
-`Call`
+[Call](java/reference/voice/classes/Call.mdx)
 
 ### get
-▸**get(String sid)**:`Call`
+▸**get**(String sid): [Call](java/reference/voice/classes/Call.mdx)
 
-Returns a selected Call based on the SID provided
+Returns a selected Call based on the SID provided.
 
 **Parameters**
 
 |Name|Type|Description |
 |----|----| -----|
-|`sid` |`String` | unique `id` gotten after making a voice call |
+|`sid` |`String` | unique `id` gotten after making a voice call. |
 
 #### Returns
-`Call`
+[Call](java/reference/voice/classes/Call.mdx)
 
 ### update
-▸**update(String sid, VoiceBuilder builder)**:`Call`
+▸**update**(String sid, [VoiceBuilder](java/reference/voice/classes/VoiceBuilder.mdx) builder):[Call](java/reference/voice/classes/Call.mdx)
 
-Update a selected call based on the SID provided and
+Update a selected call based on the SID provided and body of call.
 
 **Parameters**
 
 |Name|Type|Description |
 |----|----| -----|
-|`sid` |`String` | unique `id` gotten after making a voice call |
+|`sid` |`String` | unique `id` gotten after making a voice call. |
 
 #### Returns
-`Call`
-
+[Call](java/reference/voice/classes/Call.mdx)
 
 ### delete
 ▸**delete(String sid)**:`SuccessResponse`
 
-Deletes a selected call log item
+Deletes a selected call log item.
 
 #### Returns
 `SuccessResponse`

@@ -24,9 +24,9 @@ The `MessageRepository` contains method used to create, edit, get and delete mes
 
 ### create
 
-▸**create(**`String to`, `String from`, `String body`**)**:`NewMessageResponse`
+▸**create**(String to, String from, String body): [NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
-Method to create a message
+Method to create a message.
 
 **Parameters**
 
@@ -37,13 +37,13 @@ Method to create a message
 | `body` | `String` | The text of the message. Up to 1600 characters long and can be null if no message was sent. |
 
 #### Returns
-`NewMessageResponse`
+[NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
 ### create(MessageRequest request)
 
-▸**create(**`MessageRequest request`**)**:`NewMessageResponse`
+▸**create**([MessageRequest](java/reference/messaging/classes/MessageRequest.mdx) request): [NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
-Create a message with additional information
+Create a message with additional information.
 
 **Usage**
 
@@ -63,47 +63,47 @@ System.out.println(response.sid);
 ```
 
 #### Returns
-`NewMessageResponse`
+[NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
 ### getMessages
 
-▸**getMessages()**:`Messages`
+▸**getMessages**():[Messages](java/reference/messaging/classes/Messages.mdx)
 
-Get all the messages on your Signalwire project
+Get all the messages on your SignalWire project.
 
 #### Returns
-`Messages`
+[Messages](java/reference/messaging/classes/Messages.mdx)
 
 ### getMessages(MessageFilter filter)
 
-▸**getMessages(**`MessageFilter filter`**)**:`Messages`
+▸**getMessages**([MessageFilter](java/reference/messaging/classes/MessageFilter.mdx) `filter`): [Messages](java/reference/messaging/classes/Messages.mdx)
 
-Get all the messages on your Signalwire project, using the `filter` object to query the data on your SignalWire space
+Get all the messages on your Signalwire project, using the `filter` object to query the data on your SignalWire space.
 
 #### Returns
-`Messages`
+[Messages](java/reference/messaging/classes/Messages.mdx)
 
 ### get
 
-▸**get(**`String sid`**)**:`Message`
+▸**get**(String sid): [Message](java/reference/messaging/classes/Message.mdx)
 
-Get a particular Message by SID. Returns a `Message` object
+Get a particular Message by SID. Returns a `Message` object.
 
 #### Returns
-`Message`
+[Message](java/reference/messaging/classes/Message.mdx)
 
 ### update
 
-▸**update(**`String sid`, `String body`**)**:`NewMessageResponse`
+▸**update**(String sid, String body): [NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
 Update a selected message item based on the `SID`
 
 #### Returns
-`NewMessageResponse`
+[NewMessageResponse](java/reference/messaging/classes/NewMessageResponse.mdx)
 
 ### delete
 
-▸**delete(**`String sid`**)**:`SuccessResponse`
+▸**delete**(String `sid`):SuccessResponse
 
 Deletes a selected message
 
