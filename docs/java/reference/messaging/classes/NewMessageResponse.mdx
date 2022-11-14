@@ -1,0 +1,139 @@
+---
+sidebar_position: 0
+---
+
+# NewMessageResponse
+
+`NewMessageResponse` represents a response after creating or sending a message.
+
+## Properties
+
+### api_version
+
+- **api_version:** `String`
+
+The version of the SignalWire API.
+
+---
+
+### account_sid
+
+- **account_sid:** `String`
+
+The unique identifier for the account that created this call.
+
+---
+
+### body
+
+- **body:** `String`
+
+The text of the message. Up to 1600 characters long and can be null if no message was sent.
+
+---
+### to
+
+- **to:** `String`
+
+The phone number in E.164 format that received the message.
+
+---
+
+### price_unit
+
+- **price_unit:** `String`
+
+The currency in which `price` is charged as.
+
+---
+
+### sid
+
+- **sid:** `String`
+
+A unique ID that identifies this specific message.
+
+---
+
+### date_created
+
+- **date_created:** `String`
+
+The date and time the message was created in RFC 2822 format.
+
+---
+
+### date_sent
+
+- **date_sent:** `String`
+
+The date and time the message was sent in RFC 2822 format.
+
+---
+
+### date_updated
+
+- **date_updated:** `String`
+
+The date and time the message was last updated in RFC 2822 format.
+
+---
+
+### direction
+
+- **direction:** `String`
+
+**Possible values:** [`inbound`, `outbound-api`, `outbound-call`, `outbound-reply`]
+
+The direction of the message.
+
+---
+
+### price
+
+- **price:** `String`
+
+The cost of the individual message billed to your project.
+
+---
+
+### uri
+
+- **uri:** `String`
+
+The URI of this particular message.
+
+---
+
+
+### error_code
+
+- **error_code:** `String`
+
+If an error has occurred on the message, the error code will give you a specific code to help lookup more information on the failure. If no error occurred, error_code will be null.
+
+---
+
+### error_message
+
+- **error_message:** `String`
+
+A human readable description of the error that occurred. If no error occurred, error_message will be null.
+
+---
+
+### num_segments
+
+- **num_segments:** `int`
+
+The number of segments that make up the entire message.
+
+---
+
+### num_media
+
+- **num_media:** `int`
+
+The number of media files that were included with the message.
+
+---
