@@ -1,0 +1,120 @@
+---
+sidebar_position: 0
+---
+
+# Message
+
+A Message object represents a response from a message sent. you can get instances of a Message object from calling `messagRepository.get(String sid)`, by getting a message.
+
+## Properties
+
+### api_version
+
+- **api_version:** `String`
+
+The version of the SignalWire API.
+
+---
+### account_sid
+
+- **account_sid:** `String`
+
+The unique identifier for the account that created this call.
+
+---
+
+### body
+
+- **body:** `String`
+
+The text of the message. Up to 1600 characters long and can be null if no message was sent.
+
+---
+### account_sid
+
+- **account_sid:** `String`
+
+The unique identifier for the account that created this call.
+
+---
+### status
+
+- **status:** `String`
+
+**Possible values:** [`queued`, `sending`, `sent`, `delivered`, `undelivered`, `failed`, `receiving`, `received`]
+
+Current status of the message.
+
+---
+### to
+
+- **to:** `String`
+
+The phone number in E.164 format that received the message.
+
+---
+### from
+
+- **from:** `String`
+
+The phone number in E.164 format. For inbound messages, this will be the remote phone number who sent the message.
+
+---
+
+### price_unit
+
+- **price_unit:** `String`
+
+The currency in which `price` is charged as.
+
+---
+
+### sid
+
+- **sid:** `String`
+
+A unique ID that identifies this specific message.
+
+---
+
+### date_created
+
+- **date_created:** `String`
+
+The date and time the message was created in RFC 2822 format.
+
+---
+
+### date_sent
+
+- **date_sent:** `String`
+
+The date and time the message was sent in RFC 2822 format.
+
+---
+
+### date_updated
+
+- **date_updated:** `String`
+
+The date and time the message was last updated in RFC 2822 format.
+
+---
+
+### direction
+
+- **direction:** `String`
+
+**Possible values:** [`inbound`, `outbound-api`, `outbound-call`, `outbound-reply`]
+
+The direction of the message.
+
+---
+
+### price
+
+- **price:** `String`
+
+The cost of the individual message billed to your project.
+
+---

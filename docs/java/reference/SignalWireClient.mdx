@@ -1,0 +1,57 @@
+---
+sidebar_position: 0
+---
+
+# SignalWireClient
+
+You can use instances of this class to initiate other methods which includes (Voice, Message, XML, SIP, Phone, Accounts
+
+**Examples**
+
+The following examples initialize the `SignalWireClient` object.
+
+```java
+String projectId = "xxxx-xxxxx-xxxxx";
+String apiToken = "PTXXXXXXXXX;
+SignalWireClient client = new SignalWireClient(projectId, apiToken, "space-name");
+```
+
+## Constructors
+
+### constructor
+
+- ** new Client(String ProjectId, String ApiToken, String spaceName) **
+
+#### Parameters
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `projectId` | `String` | ProjectId gotten from your Signalwire space e.g `a10d8a9f-2166-4e82-56ff-118bc3a4840f` |
+| `apiToken` | `String` | Api token generated from your Signalwire dashboard e.g `PT9e5660c101cd140a1c93a0197640a369cf5f16975a0079c9`|
+| `spaceName` | `String` | Name of your space e.g `testing` |
+
+
+## Methods
+
+### message
+
+▸ **message**():[MessageRepository](java/reference/messaging/MessageRepository.mdx)
+
+This method returns an instance of the message repository which includes other method use to create, get and filter messages from your SignalWire account
+
+#### Returns
+[MessageRepository](java/reference/messaging/MessageRepository.mdx)
+
+### voice
+▸ **voice**():[VoiceRepository](java/reference/voice/VoiceRepository.mdx)
+
+This method returns an instance of the voice repository which includes other method used to create, get and filter voice calls using SignalWire REST API
+
+#### Returns
+[VoiceRepository](java/reference/voice/VoiceRepository.mdx)
+
+### xml
+▸ **xml**(): [LamLRepository](java/reference/xml/LamlRepository.mdx)
+This method returns an instance of the xml repository which includes other method used to create, get and filter XML bins using SignalWire REST API
+
+#### Returns
+[LamLRepository](java/reference/xml/LamlRepository.mdx)

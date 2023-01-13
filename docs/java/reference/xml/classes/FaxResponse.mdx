@@ -1,0 +1,63 @@
+---
+sidebar_position: 0
+---
+
+# FaxResponse
+
+The `FaxResponse` class is used to create a fax XML string using the Java Wrapper Library.
+
+## Usage
+
+```java
+
+// Create an HashMap to store attribute needed to use a verb
+HashMap<String, String> faxAttribute = new HashMap<>();
+
+faxAttribute.put("action", "/fax/received");
+
+// Generate the XML
+FaxResponse response = new FaxResponse.Builder()
+            .receive(faxAttribute)
+            .build();
+
+// Print out the XML
+System.out.println(response.getResponse());
+
+```
+
+The above snippet prints out
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Response>
+    <Receive action="/fax/received"/>
+</Response>
+```
+
+The `FaxResponse` class consist of a Builder class which contains list of methods used to generate or populate an XML.
+
+## Static
+
+### Builder
+
+A `Builder` class with multiple methods used to generate or populate a fax XML.
+
+## Methods
+
+### receive
+
+▸**receive**(HashMap<String, String> faxAtrribute) : Builder
+
+The Receive verb tells SignalWire to receive an incoming fax, which results in the creation of a new Fax instance resource.
+
+**Parameter**
+
+| Name | Type | Description |
+| --- | --- | ---|
+| `faxAttribute` | HashMap<String, String> | This takes in an HashMap with list of attribute needed to use the `receive` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/receive |
+
+### reject
+
+▸**reject**() : Builder
+
+The Reject verb tells SignalWire to reject an incoming fax, which results in a status of canceled.

@@ -1,0 +1,210 @@
+---
+sidebar_position: 0
+---
+
+# Call
+
+A Call object represents a response from a call made. You can get instances of a Call object from a [voiceRepository.create()](java/reference/voice/VoiceRepository.mdx/#create), by initiating calls.
+
+## Properties
+
+### account_sid
+
+- **account_sid:** `String`
+
+The unique identifier for the account that created this call.
+
+---
+
+### annotation
+- **annotation:** `String`
+
+The annotation for the call.
+
+---
+
+### answered_by
+- **answered_by:** `String`
+
+Who/what the call was answered by. Possible values are `human` or `machine`.
+
+---
+### api_version
+
+- **api_version:** `String`
+
+The version of the SignalWire API.
+
+---
+
+### caller_name
+
+- **caller_name:** `String`
+
+The name of the caller. Only available if Caller ID lookup is enabled.
+
+---
+
+### date_created
+
+- **date_created:** `String`
+
+The date, in RFC 2822 GMT format, this call was created.
+
+---
+
+### date_updated
+
+- **date_updated:** `String`
+
+The date, in RFC 2822 GMT format, this call was updated.
+
+---
+
+### direction
+
+- **direction:** `String`
+
+The direction of the call. Possible values are `inbound` or `outbound`.
+
+---
+
+### duration
+
+- **duration:** `int`
+
+The duration, in seconds, of the call.
+
+---
+
+### end_time
+
+- **end_time:** `String`
+
+The time, in RFC 2822 GMT format, on which the call was terminated.
+
+---
+
+### forwarded_from
+
+- **forwarded_from:** `String`
+
+The number this call was forwarded from.
+
+---
+
+### from
+
+- **from:** `String`
+
+The address that initiated the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
+
+---
+
+### formatted_from
+
+- **formatted_from:** `String`
+
+The formatted number that initiated the call.
+
+---
+### parent_call_sid
+
+- **parent_call_sid:** `String`
+
+The unique identifier for the call that created this call.
+
+---
+
+### phone_number_sid
+
+- **phone_number_sid:** `String`
+
+Outbound call: the unique identifier for `OutgoingCallerId`. Inbound call: the unique identifier for `IncomingPhoneNumber`.
+
+---
+
+### price
+
+- **price:** `Double`
+
+The charge for the call.
+
+---
+
+### price_unit
+
+- **price_unit:** `String`
+
+The currency, in ISO 4127 format, for the price of the call.
+
+---
+
+### sid
+
+- **sid:** `String`
+
+The unique identifier for the call.
+
+---
+
+### start_time
+
+- **start_time:** `String`
+
+The time, in RFC 2822 GMT format, on which the call began.
+
+---
+
+### status
+
+- **status:** `String`
+
+Possible values: [`queued`, `ringing`, `in-progress`, `canceled`, `completed`, `busy`, `failed`]
+
+The status of the call.
+
+---
+
+### subresource_uris
+
+- **subresource_uris:** `SubResource`
+
+A Map of available sub-resources.
+
+**SubResource** `Object`
+
+- **notifications:** `String`
+
+The URI for notifications
+
+---
+- **recordings:** `String`
+
+The URI for recordings
+
+---
+
+### to
+
+- **to:** `String`
+
+The address that received the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
+
+---
+
+### formatted_to
+
+- **formatted_to:** `String`
+
+The formatted number that received the call.
+
+---
+
+### uri
+
+- **uri:** `String`
+
+The URI for the call.
+
+---

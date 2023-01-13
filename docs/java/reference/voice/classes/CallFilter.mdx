@@ -1,0 +1,91 @@
+---
+sidebar_position: 0
+---
+
+# CallFilter
+
+A `CallFilter` object represents a class use to filter the list of calls from your SignalWire dashboard.
+
+## Properties
+
+### response
+
+- **response:** `HashMap<String, Object>`
+
+returns the result of the `Builder` class that will be passed to the `calls` method
+
+## Constructor
+
+### CallFilter(Builder builder)
+
+The constructor takes the static Builder class used to populate the items needed to filter the voice logs.
+
+## Static
+
+## Builder
+
+A `Builder` class with multiple methods used to generate the data needed to filter the Voice logs
+
+## Methods
+
+### endTime
+
+▸**endTime**(String endTime) : Builder
+
+The time, in RFC 2822 GMT format, on which the call was terminated.
+
+### endTimeBefore
+
+▸**endTimeBefore**(String endTime) : Builder
+
+The time, in RFC 2822 GMT format, before which the call was terminated
+
+### endTimeAfter
+
+▸**endTimeAfter**(String endTime) : Builder
+
+The time, in RFC 2822 GMT format, after which the call was terminated
+
+### from
+
+▸**from**(String phone):Builder
+
+The address that initiated the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
+
+### parentCallSid
+
+▸**parentCallSid**(String sid) : Builder
+
+The unique identifier for the call that created this call.
+
+### startTime
+
+▸**startTime**(String startTime) : Builder
+
+The time, in RFC 2822 GMT format, on which the call began.
+
+### startTimeBefore
+
+▸**startTimeBefore**(String startTime) : Builder
+
+The time, in RFC 2822 GMT format, before which the call began.
+
+### startTimeAfter
+
+▸**startTimeAfter**(String startTime) : Builder
+
+The time, in RFC 2822 GMT format, after which the call began.
+
+### status
+
+▸**status**(String status) :Builder
+
+Possible values: [`queued`, `ringing`, `in-progress`, `canceled`, `completed`, `busy`, `failed`]
+
+The status of the call.
+
+### to
+
+▸**to**(String phone) : Builder
+
+The address that received the call. Can be either a E.164 formatted number `(+xxxxxxxxxxx)`, or a SIP endpoint `(sip:xxx@yyy.zzz)`.
