@@ -1,0 +1,92 @@
+---
+sidebar_position: 0
+---
+
+# MessageResponse
+
+The `MessageResponse` class is used to create a message XML string using the Java Wrapper Library.
+
+## Usage
+
+```java
+
+// Create an HashMap to store attribute needed to use a verb
+HashMap<String, String> messageAttribute = new HashMap<>();
+
+messageAttribute.put("action", "https://your-application.com/followup");
+messageAttribute.put("method", "GET");
+
+// Generate the XML
+MessageResponse response = new MessageResponse.Builder()
+        .message(messageAttribute, "Hello Message xml!")
+        .build();
+
+// Print out the XML
+System.out.println(response.getResponse());
+
+```
+
+The above snippet prints out
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Response>
+    <Message action="https://your-application.com/followup"
+             method="GET">
+        Hello Message xml!
+    </Message>
+</Response>
+```
+The `MessageResponse` class consist of a Builder class which contains list of methods used to generate or populate an XML.
+
+## Static
+
+A `Builder` class with multiple methods used to generate or populate a message XML.
+
+## Methods
+
+### message
+
+▸**message**(HashMap<String, String> messageAttribute, String text) : Builder
+
+The Message verb sends an SMS or MMS message to a phone number.
+
+**Parameter**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `messageAttribute` | HashMap<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
+| `text` | String | Content of the message to be sent |
+
+
+### messageWithMedia
+
+▸**messageWithMedia**(HashMap<String, String> messageAttribute, String body, String mediaUrl ) : Builder
+
+Add a picture to the message by specifying a `URL` with a nested `Media` noun.
+
+The body parameter is optional if you are sending media and you do not want to send text with your media in the message.
+
+**Parameter**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `messageAttribute` | HashMap<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
+| `body` | String | body of the verb |
+| `mediaUrl` | String | url to media file |
+
+### redirect
+
+▸**receive**(String url) : Builder
+
+The Redirect verb transfers control from the current document to another.
+
+It is effectively an exit statement from the current document, as there is no way to return to any instructions listed after the Redirect verb.
+
+**Parameter**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `url` | String | url to redirect call. For more information on this method visit https://developer.signalwire.com/compatibility-api/reference/redirect-1 |
+
+
