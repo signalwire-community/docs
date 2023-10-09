@@ -1,0 +1,50 @@
+While most of the `useSignalWire` hook works exactly the same as the [React version](/docs/react/signalwire), there are a few additions
+to handle React Native specific tasks.
+
+# Added SignalWire client methods
+
+### The `.registerDevice` method
+
+This method registers an iOS or Android device to be able to receive push notifications from SignalWire.
+In particular, this method sends the device's device token to SignalWire, without which push notifications can't
+be sent from the server.
+
+For iOS, it needs to be specifically be the VoIP notification token.
+
+```js
+const client = useSignalWire({ token: ACCESS_TOKEN });
+// ...
+// Retrieve DEVICE_TOKEN from the device after getting permissions to send
+// push notifications.
+// DEVICE_TOKEN is not the same as ACCESS_TOKEN, which you'd get from SignalWire.
+client.registerDevice({ deviceToken: DEVICE_TOKEN });
+```
+
+### The `.unregisterDevice` method
+
+Call this method to unregister the device from receiving push notifications (such as, when logging out from the phone).
+
+```js
+function logout() {
+  client.unregisterDevice();
+}
+```
+
+### The `.handlePushNotification` method
+
+Call this method when a push notification payload is received for a Fabric call. It will
+set up the call and return a call handle object.
+
+This library doesn't help you receive the notification payloads or device tokens. Please use
+[`react-native-callkeep`](https://github.com/react-native-webrtc/react-native-callkeep) or [`react-native-voip-push-notifications`](https://github.com/react-native-webrtc/react-native-voip-push-notification) or similar libraries for that
+purpose.
+
+```js
+function onNotificationPayloadReceived(){
+    try {
+        const callHandle = await client.handlePushNotification(payload);
+    } catch (e) {
+        console.log("Unable to process payload");
+    }
+}
+```
