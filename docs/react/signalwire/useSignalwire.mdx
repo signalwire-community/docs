@@ -1,0 +1,42 @@
+# useSignalWire
+
+This hook instantiates a SignalWire client given an access token. The client can make calls to
+Fabric addresses. Pass the client to other hooks and components to make use of it.
+
+## Import
+
+```jsx
+import { useSignalWire } from "@signalwire-community/react";
+```
+
+## Props
+
+<div className="lightTable" />
+
+| Name    | Type     | Default | Description                     |
+| :------ | :------- | :------ | :------------------------------ |
+| `token` | `string` |         | The access token for SignalWire |
+
+## Example
+
+Example usage:
+
+```jsx
+import { Call, useAddresses } from "@signalwire-community/react";
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const client = useSignalWire({
+    token: "<token>",
+  });
+  const addresses = useAddresses(client);
+
+  return (
+    <div>
+      {addresses?.map((address) => (
+        <div>{address.type}</div>
+      ))}
+    </div>
+  );
+}
+```

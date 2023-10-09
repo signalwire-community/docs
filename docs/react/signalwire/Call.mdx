@@ -1,0 +1,65 @@
+# Call
+
+This component places a call to a Fabric address using the given SignalWire client.
+
+## Import
+
+```jsx
+import { Call } from "@signalwire-community/react";
+```
+
+## Props
+
+<div className="lightTable" />
+
+| Name        | Type                 | Default  | Description                                                                                                                                                                     |
+| :---------- | :------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| client      | `SignalWireContract` |          | The SignalWire client obtained with the `useSignalWire` hook.                                                                                                                   |
+| address     | Address              |          | A callable address that might be obtained by using the `useAddresses` hook.                                                                                                     |
+| onCallReady | `(call) => void`     | `()=>{}` | Callback for when a Call object has been created (and before it is joined).                                                                                                     |
+| hideVideo   | `boolean`            | `false`  | If `true`, the video feed is hidden superficially from the component. The webcam and microphone will still be active, and the video feed is accessible via `Call.remoteStream`. |
+
+## Example
+
+```jsx
+import {
+  Call,
+  useSignalWire,
+  useAddresses,
+  useMembers,
+} from "@signalwire-community/react";
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const client = useSignalWire({
+    token: "<token>",
+  });
+  const addresses = useAddresses(client);
+  const [address, setAddress] = useState(null);
+  const [call, setCall] = useState(null);
+
+  const { self } = useMembers(call);
+
+  useEffect(() => {
+    const rooms = addresses?.filter((a: any) => a.type === "room") ?? [];
+    setAddress(rooms?.[0] ?? null);
+  }, [addresses]);
+
+  return (
+    <div>
+      {client && address !== null && (
+        <>
+          <Call
+            client={client}
+            address={address}
+            onCallReady={(r: any) => {
+              setCall(r);
+            }}
+          />
+          <button onClick={(e) => self?.remove()}>Leave</button>
+        </>
+      )}
+    </div>
+  );
+}
+```
