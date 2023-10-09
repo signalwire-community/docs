@@ -1,0 +1,41 @@
+# useAddresses
+
+This hook fetches the addresses from your SignalWire client and keeps them up to date.
+
+## Import
+
+```jsx
+import { useAddresses } from "@signalwire-community/react";
+```
+
+## Props
+
+<div className="lightTable" />
+
+| Name     | Type                           | Default | Description                                                |
+| :------- | :----------------------------- | :------ | :--------------------------------------------------------- |
+| `client` | `SignalWireContract` or `null` |         | The SignalWire client returned by the `useSignalWire` hook |
+
+## Example
+
+Example usage:
+
+```jsx
+import { Call } from "@signalwire-community/react";
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const client = useSignalWire({
+    token: "<token>",
+  });
+  const addresses = useAddresses(client);
+
+  return (
+    <div>
+      {addresses?.map((address) => (
+        <div>{address.type}</div>
+      ))}
+    </div>
+  );
+}
+```
