@@ -1,6 +1,15 @@
-# Call
+# Call [Alpha]
 
 This component places a call to a Fabric address using the given SignalWire client.
+
+:::warning
+
+Please note that the Call Fabric is still in Alpha. The interfaces might have changed and
+the docs might not have caught up.
+
+Feel free to contact SignalWire support if something doesn't work.
+
+:::
 
 ## Import
 
@@ -15,7 +24,7 @@ import { Call } from "@signalwire-community/react";
 | Name        | Type                 | Default  | Description                                                                                                                                                                     |
 | :---------- | :------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | client      | `SignalWireContract` |          | The SignalWire client obtained with the `useSignalWire` hook.                                                                                                                   |
-| address     | Address              |          | A callable address that might be obtained by using the `useAddresses` hook.                                                                                                     |
+| address     | `string`             |          | A callable address that might be obtained by using the `useAddresses` hook.                                                                                                     |
 | onCallReady | `(call) => void`     | `()=>{}` | Callback for when a Call object has been created (and before it is joined).                                                                                                     |
 | hideVideo   | `boolean`            | `false`  | If `true`, the video feed is hidden superficially from the component. The webcam and microphone will still be active, and the video feed is accessible via `Call.remoteStream`. |
 
@@ -34,15 +43,14 @@ export default function App() {
   const client = useSignalWire({
     token: "<token>",
   });
-  const addresses = useAddresses(client);
+  const addresses = useAddresses(client, { type: "room" });
   const [address, setAddress] = useState(null);
   const [call, setCall] = useState(null);
 
   const { self } = useMembers(call);
 
   useEffect(() => {
-    const rooms = addresses?.filter((a: any) => a.type === "room") ?? [];
-    setAddress(rooms?.[0] ?? null);
+    setAddress(addresses?.[0] ?? null);
   }, [addresses]);
 
   return (
@@ -51,7 +59,7 @@ export default function App() {
         <>
           <Call
             client={client}
-            address={address}
+            address={address.channels.video}
             onCallReady={(r: any) => {
               setCall(r);
             }}
