@@ -47,7 +47,7 @@ A `Builder` class with multiple methods used to generate or populate a message X
 
 ### message
 
-▸**message**(HashMap<String, String> messageAttribute, String text) : Builder
+▸**message**(HashMap\<String, String> messageAttribute, String text) : Builder
 
 The Message verb sends an SMS or MMS message to a phone number.
 
@@ -55,13 +55,13 @@ The Message verb sends an SMS or MMS message to a phone number.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `messageAttribute` | HashMap<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
+| `messageAttribute` | HashMap\<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
 | `text` | String | Content of the message to be sent |
 
 
 ### messageWithMedia
 
-▸**messageWithMedia**(HashMap<String, String> messageAttribute, String body, String mediaUrl ) : Builder
+▸**messageWithMedia**(HashMap\<String, String> messageAttribute, String body, String mediaUrl ) : Builder
 
 Add a picture to the message by specifying a `URL` with a nested `Media` noun.
 
@@ -71,7 +71,7 @@ The body parameter is optional if you are sending media and you do not want to s
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `messageAttribute` | HashMap<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
+| `messageAttribute` | HashMap\<String, String> | This takes in an HashMap with list of attribute needed to use the `message` verb. For more information on this visit https://developer.signalwire.com/compatibility-api/reference/message |
 | `body` | String | body of the verb |
 | `mediaUrl` | String | url to media file |
 
