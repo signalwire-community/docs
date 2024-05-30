@@ -1,0 +1,114 @@
+---
+sidebar_label: DetectResult
+---
+
+# Relay.Calling.DetectResult
+
+This object returned from one of _synchronous_ detect methods that represents the final result of a detector.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### getEvent
+
+Returns the last Relay Event arrived for this operation.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Event`](relay/server-sdk/php/reference/relay_event.mdx) - Last Relay Event.
+
+**Examples**
+
+```php title="Detect digits and grab the result when it's completed."
+<?php
+
+$call->detectDigit()->done(function($result) {
+  $event = $result->getEvent();
+  // Inspect $event->payload ..
+});
+```
+
+### getResult
+
+Returns the result of the detector. It could be the digits or the type (`machine` or `human`) detected.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - Detector result.
+
+**Examples**
+
+```php title="Detect DTMF and print out the result."
+<?php
+
+$call->detectDigit()->done(function($result) {
+  if ($result->isSuccessful()) {
+    echo "DTMF detected: " . $result->getResult();
+  }
+});
+```
+
+### getType
+
+Returns the `type` of detector.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - Detector type: `digit`, `machine` or `fax`.
+
+**Examples**
+
+```php title="Check the type of a detector."
+<?php
+
+$call->detectFax()->done(function($result) {
+  if ($result->isSuccessful()) {
+    echo "Detector type: " . $result->getType();
+  }
+});
+```
+
+### isSuccessful
+
+Return `true` if detector succeeded, `false` otherwise.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Boolean` - True/False accordingly to the state.
+
+**Examples**
+
+```php title="Start detecting a fax, then check if a 'fax' has been detected."
+<?php
+
+$call->detectFax()->done(function($result) {
+  if ($result->isSuccessful()) {
+    // Fax has been detected!
+  }
+});
+```

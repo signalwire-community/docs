@@ -1,0 +1,101 @@
+---
+sidebar_label: ConnectResult
+---
+
+# Relay.Calling.ConnectResult
+
+This object returned from the [`connect`](relay/server-sdk/php/reference/relay_calling/call.mdx#connect) method that represents the final result of a connection between your call and a remote one.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### getCall
+
+Return the Call object connected with yours, if the connection succeeded.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Calling.Call`](relay/server-sdk/php/reference/relay_calling/call.mdx) - The remote Call.
+
+**Examples**
+
+```php title="Trying to connect two devices and then use the remote Call."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connect(...$devices)->done(function($result) {
+  if ($result->isSuccessful()) {
+    $remoteCall = $result->getCall();
+    // Use $remoteCall as a normal Relay.Calling.Call object...
+  }
+});
+```
+
+### getEvent
+
+Returns the last Relay Event arrived for this operation.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Event`](relay/server-sdk/php/reference/relay_event.mdx) - Last Relay Event.
+
+**Examples**
+
+```php title="Trying to connect two devices and then grab the Relay event to inspect the payload."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connect(...$devices)->done(function($result) {
+  $event = $result->getEvent();
+  // Inspect $event->payload ..
+});
+```
+
+### isSuccessful
+
+Return `true` if the call has connected with a remote party, `false` otherwise.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`boolean` - Whether the call has been connected successfully.
+
+**Examples**
+
+```php title="Trying to connect two devices and then check if your call has been connected."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connect(...$devices)->done(function($result) {
+  if ($result->isSuccessful()) {
+    // Your call has been connected..
+  }
+});
+```
