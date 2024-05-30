@@ -58,74 +58,74 @@ The Denoise verb enables or disables noise reduction for call audio inbound to s
 
 ### dial
 
-▸**dial**(HashMap<String, String> dialAttribute, String phone) : Builder
+▸**dial**(HashMap\<String, String> dialAttribute, String phone) : Builder
 
 The Dial verb connects an existing call to another phone number.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
 | `phone` | String | value of the phone number |
 
 ### dialWithNumberBin
 
-▸**dialWithNumberBin**(HashMap<String, String> dialAttribute, String phoneNumber, HashMap<String, String> numberAttribute) : Builder
+▸**dialWithNumberBin**(HashMap\<String, String> dialAttribute, String phoneNumber, HashMap\<String, String> numberAttribute) : Builder
 
 Dial verb's Number noun specifies what phone number to dial. You can use up to 10 Number's within a Dial to simultaneously call several people.
 The first person to answer the call will be connected to the caller and the rest of the called numbers will be hung up.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
 | `phoneNumber` | String | value of the phone number |
-| `numberAttribute` | HashMap<String, String> | additional attribute for the number bin. for more information visit https://developer.signalwire.com/compatibility-api/reference/number-noun |
+| `numberAttribute` | HashMap\<String, String> | additional attribute for the number bin. for more information visit https://developer.signalwire.com/compatibility-api/reference/number-noun |
 
 ### dialWithNumberBin
 
-▸**dialWithNumberBin**(HashMap<String, String> dialAttribute, List<String  phoneNumber) : Builder
+▸**dialWithNumberBin**(HashMap\<String, String> dialAttribute, List\<String  phoneNumber) : Builder
 
 Using the Number bin to dial multiple numbers
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
-| `phoneNumber` | List<`String`> | List of phone numbers |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `phoneNumber` | List\<`String`> | List of phone numbers |
 
 ### dialWithSIPBin
 
-▸**dialWithSIPBin**(HashMap<String, String> dialAttribute, String destination, HashMap<String, String> sipAttribute)
+▸**dialWithSIPBin**(HashMap\<String, String> dialAttribute, String destination, HashMap\<String, String> sipAttribute)
 
 Dial verb's Sip noun permits the setup of VoIP sessions using SIP (Session Initiation Protocol). You can send a call to any SIP endpoint.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
 | `destination` | String | destination phone number (E164 format). |
-| `sipAttribute` | HashMap<String, String> | additional attribute needed while creating the sip tag. For more information https://developer.signalwire.com/compatibility-api/reference/sip-noun |
+| `sipAttribute` | HashMap\<String, String> | additional attribute needed while creating the sip tag. For more information https://developer.signalwire.com/compatibility-api/reference/sip-noun |
 
 ### dialWithQueueBin
 
-▸**dialWithQueueBin**(HashMap<String, String> dialAttribute, String text, HashMap<String, String> queueAttribute) : Builder
+▸**dialWithQueueBin**(HashMap\<String, String> dialAttribute, String text, HashMap\<String, String> queueAttribute) : Builder
 
 Dial verb's Queue noun specifies what queue to dial
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
 | `text` | String | value of text sent along with the Queue tag |
-| `queueAttribute` | HashMap<String, String> | additional attribute needed while creating the queue tag. For more information https://developer.signalwire.com/compatibility-api/reference/queue-noun |
+| `queueAttribute` | HashMap\<String, String> | additional attribute needed while creating the queue tag. For more information https://developer.signalwire.com/compatibility-api/reference/queue-noun |
 
 ### dialWithConferenceBin
 
-▸**dialWithConferenceBin**(HashMap<String, String> dialAttribute, String text, HashMap<String, String> conferenceAttribute):Builder
+▸**dialWithConferenceBin**(HashMap\<String, String> dialAttribute, String text, HashMap\<String, String> conferenceAttribute):Builder
 
 Dial verb's Conference noun allows the connection to a named conference room.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `dialAttribute` | HashMap<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
+| `dialAttribute` | HashMap\<String, String> | additional attribute needed to create a verb. For more information visit https://developer.signalwire.com/compatibility-api/reference/dial |
 | `text` | String | value of text sent along with the conference tag |
-| `queueAttribute` | HashMap<String, String> | additional attribute needed while creating the queue tag. For more information https://developer.signalwire.com/compatibility-api/reference/conference-noun |
+| `queueAttribute` | HashMap\<String, String> | additional attribute needed while creating the queue tag. For more information https://developer.signalwire.com/compatibility-api/reference/conference-noun |
 
 ### echo
 
@@ -139,36 +139,36 @@ Use to echo audio back to the call.
 
 ### enqueue
 
-▸**enqueue**(HashMap<String, String> enqueueAttr, String text)
+▸**enqueue**(HashMap\<String, String> enqueueAttr, String text)
 
 The Enqueue verb places a call in a specified call queue.
 If the specified queue does not exist, a new queue will be created and the call will be placed into that new queue.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `enqueueAttr` | HashMap<String, String> | additional attribute needed while creating the enqueue tag. For more information you can check out https://developer.signalwire.com/compatibility-api/reference/enqueue |
+| `enqueueAttr` | HashMap\<String, String> | additional attribute needed while creating the enqueue tag. For more information you can check out https://developer.signalwire.com/compatibility-api/reference/enqueue |
 | `text` | String | value to be added in the Enqueue tag |
 
 ### gatherWithSayBin
 
-▸**gatherWithSayBin**(HashMap<String, String> gatherAttr, String text)
+▸**gatherWithSayBin**(HashMap\<String, String> gatherAttr, String text)
 
 The verb transcribes speech or collects digits during a call.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `gatherAttr` | HashMap<String, String> | additional attribute needed while creating a gather with the say tag. For more information you can check out https://developer.signalwire.com/compatibility-api/xml/voice/gather|
+| `gatherAttr` | HashMap\<String, String> | additional attribute needed while creating a gather with the say tag. For more information you can check out https://developer.signalwire.com/compatibility-api/xml/voice/gather|
 | `text` | String | Value to be added in the say tag |
 
 ### gatherWithPlayBin
 
-▸**gatherWithSayBin**(HashMap<String, String> gatherAttr, String url)
+▸**gatherWithSayBin**(HashMap\<String, String> gatherAttr, String url)
 
 You can use the *Play* verb to prompt callers to enter the desired input.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `gatherAttr` | HashMap<String, String> | additional attribute needed while creating a gather with the say tag. For more information you can check out [here](https://developer.signalwire.com/compatibility-api/xml/voice/gather#nesting-play-within-a-gather). |
+| `gatherAttr` | HashMap\<String, String> | additional attribute needed while creating a gather with the say tag. For more information you can check out [here](https://developer.signalwire.com/compatibility-api/xml/voice/gather#nesting-play-within-a-gather). |
 | `text` | String | Url you would like to play |
 
 ### hangup
@@ -195,24 +195,24 @@ The pause method waits silently for a distinctive number of seconds, for more in
 
 ### play
 
-▸**play**(HashMap<String, String> playAttr, String url)
+▸**play**(HashMap\<String, String> playAttr, String url)
 
 The Play verb plays an audio file, which SignalWire fetches from the URL you configured, back to the caller.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| playAttr | HashMap<String, String> | additional attribute needed while creating the play tag. for more information visit the [Play](https://developer.signalwire.com/compatibility-api/reference/play) reference. |
+| playAttr | HashMap\<String, String> | additional attribute needed while creating the play tag. for more information visit the [Play](https://developer.signalwire.com/compatibility-api/reference/play) reference. |
 | url | String | value representing the url to be played |
 
 ### record
 
-▸**record**(HashMap<String, String> recordAttribute)
+▸**record**(HashMap\<String, String> recordAttribute)
 
 The Record verb creates an audio file with the caller's voice and returns the URL to you.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| recordAttr | HashMap<String, String> | additional attribute needed while creating the record tag. for more information visit the [Record](https://developer.signalwire.com/compatibility-api/reference/record) reference. |
+| recordAttr | HashMap\<String, String> | additional attribute needed while creating the record tag. for more information visit the [Record](https://developer.signalwire.com/compatibility-api/reference/record) reference. |
 
 
 ### redirect
@@ -227,13 +227,13 @@ The Redirect verb transfers control from the current call to another.
 
 ### refer
 
-▸**refer**(HashMap<String, String> referAttribute, String sipAddress)
+▸**refer**(HashMap\<String, String> referAttribute, String sipAddress)
 
 The Refer verb transfers a SIP call in SignalWire to a transfer target using the SIP REFER method.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `referAttr` | HashMap<String, String> | additional attribute needed while creating the refer tag. for more information visit the [Record](https://developer.signalwire.com/compatibility-api/reference/refer#examples) reference. |
+| `referAttr` | HashMap\<String, String> | additional attribute needed while creating the refer tag. for more information visit the [Record](https://developer.signalwire.com/compatibility-api/reference/refer#examples) reference. |
 | `sipAddress` | String | value of the SIP address |
 
 ### reject
@@ -248,43 +248,43 @@ The Reject verb rejects a call to your SignalWire number. It is effectively an e
 
 ### say
 
-▸**say**(HashMap<String, String> sayAttribute, String text)
+▸**say**(HashMap\<String, String> sayAttribute, String text)
 
 The Say verb reads the supplied text back to the caller. It is useful for text that is difficult to pre-record.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `sayAttr` | HashMap<String, String> | additional attribute needed while creating the `say` tag. for more information visit the [Say](https://developer.signalwire.com/compatibility-api/reference/say) reference. |
+| `sayAttr` | HashMap\<String, String> | additional attribute needed while creating the `say` tag. for more information visit the [Say](https://developer.signalwire.com/compatibility-api/reference/say) reference. |
 | `text` | value of content to say |
 
 ### sms
 
-▸**sms**(HashMap<String, String> smsAttribute, String text)
+▸**sms**(HashMap\<String, String> smsAttribute, String text)
 
 The Sms verb sends an SMS message to a phone number during a phone call.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `smsAttr` | HashMap<String, String> | additional attribute needed while creating the `sms` tag. for more information visit the [SMS](https://developer.signalwire.com/compatibility-api/reference/sms) reference. |
+| `smsAttr` | HashMap\<String, String> | additional attribute needed while creating the `sms` tag. for more information visit the [SMS](https://developer.signalwire.com/compatibility-api/reference/sms) reference. |
 | `text` | Sms content to be sent to destination |
 
 ### stream
 
-▸**stream**(HashMap<String, String> streamAttribute)
+▸**stream**(HashMap\<String, String> streamAttribute)
 
 The Stream instruction makes it possible to send raw audio streams from a running phone call over WebSockets in near real time, to a specified URL
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `streamAttribute` | HashMap<String, String> | additional attribute needed while creating the `stream` tag. for more information visit the [Stream](https://developer.signalwire.com/compatibility-api/reference/stream#websocket-messages) reference. |
+| `streamAttribute` | HashMap\<String, String> | additional attribute needed while creating the `stream` tag. for more information visit the [Stream](https://developer.signalwire.com/compatibility-api/reference/stream#websocket-messages) reference. |
 
 
 ### stopStream
 
-▸**stopStream**(HashMap<String, String> streamAttribute)
+▸**stopStream**(HashMap\<String, String> streamAttribute)
 
 A stop message will be sent when the Stream is either stopped or the Call has ended.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `streamAttribute` | HashMap<String, String> | additional attribute needed while creating the `stream` tag. for more information visit the [StopStream](https://developer.signalwire.com/compatibility-api/reference/stream#stopping-a-stream) reference. |
+| `streamAttribute` | HashMap\<String, String> | additional attribute needed while creating the `stream` tag. for more information visit the [StopStream](https://developer.signalwire.com/compatibility-api/reference/stream#stopping-a-stream) reference. |
