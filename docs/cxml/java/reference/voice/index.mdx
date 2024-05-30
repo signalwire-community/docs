@@ -1,0 +1,35 @@
+---
+sidebar_position: 0
+---
+
+# Voice
+
+Access the Voice API. you can get an object of the [VoiceRepository](cxml/java/reference/voice/index.mdx) which allows you to create Voice calls using SignalWire Rest API
+
+**Example**
+
+The following example place a phone call using the Java Library
+
+```java
+String projectId = "xxxx-xxxxx-xxxxx";
+String apiToken = "PTXXXXXXXXX;
+SignalWireClient client = new SignalWireClient(projectId, apiToken, "space-name");
+
+// Get a reference of the Voice Repository Object
+VoiceRepository repository = client.voice();
+
+// Make a simple phone call
+// Create a builder
+VoiceBuilder builder = new VoiceBuilder.
+        .to("to-number")
+        .from("from-number")
+        .url("xml-bin-url")
+        .build();
+
+// New call returns the Call Class
+Call response = repository.create(builder);
+
+// Print Call SID
+System.out.println(response.sid);
+```
+

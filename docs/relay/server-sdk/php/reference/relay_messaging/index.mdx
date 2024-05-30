@@ -1,0 +1,50 @@
+---
+sidebar_position: 5
+---
+
+# Relay.Messaging
+
+This represents the API interface for the Messaging Relay Service. This object is used to make requests related to managing SMS and MMS messages.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### send
+
+Send a message to the destination number.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.1+-brightgreen.svg" />
+
+**Parameters**
+
+|           |                                                |                                            |                                                                                                             |
+| --------- | ---------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `context` | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | The context to receive inbound events.                                                                      |
+| `from`    | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | The phone number to place the message from. _Must be a SignalWire phone number or short code that you own._ |
+| `to`      | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | The phone number to send to.                                                                                |
+| `body`    | <span class="method-prop-type">string</span>   | <span class="required-arg">required</span> | The content of the message.<br /> _Optional if `media` is present._                                         |
+| `media`   | <span class="method-prop-type">string[]</span> | <span class="required-arg">required</span> | Array of URLs to send in the message. <br /> _Optional if `body` is present._                               |
+| `tags`    | <span class="method-prop-type">string[]</span> | <span class="optional-arg">optional</span> | Array of strings to tag the message with for searching in the UI.                                           |
+
+**Returns**
+
+`React\Promise\Promise` - `Promise` that will be fulfilled with a [`Relay.Messaging.SendResult`](relay/server-sdk/php/reference/relay_messaging/send_result.mdx) object.
+
+**Examples**
+
+```php title="Send a message in the context 'office'."
+<?php
+
+$params = [
+  'context' => 'office',
+  'from' => '+1XXXXXXXXXX',
+  'to' => '+1YYYYYYYYYY',
+  'body' => 'Welcome at SignalWire!'
+];
+$client->messaging->send($params)->done(function($sendResult) {
+  if ($sendResult->isSuccessful()) {
+    echo "Message ID: " . $sendResult->getMessageId();
+  }
+});
+```

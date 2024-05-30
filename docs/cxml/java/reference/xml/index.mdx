@@ -1,0 +1,23 @@
+---
+sidebar_position: 0
+---
+
+# XML Bins
+
+XML bins, sometimes referred to as LaML bins, create a URL endpoint that responds with a set of instructions that can be executed to handle calls, SMS, or fax.
+
+## Usage
+
+The following example shows how to make use of the [LamlRepository](cxml/java/reference/xml/LamlRepository.mdx) to get all the Bins on your SignalWire space.
+
+```java
+String projectId = "xxxx-xxxxx-xxxxx";
+String apiToken = "PTXXXXXXXXX";
+SignalWireClient client = new SignalWireClient(projectId, apiToken, "space-name");
+
+// Get a reference the XML repository object
+LamlRepository repository = client.xml();
+
+// Get list of Bin on your SignalWire space
+LamlResponse response = repository.list();
+```

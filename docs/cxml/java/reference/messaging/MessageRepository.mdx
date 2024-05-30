@@ -1,0 +1,115 @@
+---
+sidebar_position: 0
+---
+
+# MessageRepository
+
+The `MessageRepository` contains method used to create, edit, get and delete message using the Java Wrapper Library
+
+## Constructors
+
+### constructor
+
+- **new MessageRepository(String projectId, String apiToken, String spaceName)**
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `projectId` | `String` | ProjectId gotten from your Signalwire space e.g `a10d8a9f-2166-4e82-56ff-118bc3a4840f` |
+| `apiToken` | `String` | Api token generated from your Signalwire dashboard e.g `PT9e5660c101cd140a1c93a0197640a369cf5f16975a0079c9`|
+| `spaceName` | `String` | Name of your space e.g `testing` |
+
+## Methods
+
+### create
+
+▸**create**(String to, String from, String body): [NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+Method to create a message.
+
+**Parameters**
+
+|Name|Type|Description|
+| --- | --- | ---|
+| `to` | `String` | The phone number in E.164 format that received the message |
+| `from` | `String` | The phone number in E.164 format. For inbound messages, this will be the remote phone number who sent the message. |
+| `body` | `String` | The text of the message. Up to 1600 characters long and can be null if no message was sent. |
+
+#### Returns
+[NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+### create(MessageRequest)
+
+▸**create**([MessageRequest](cxml/java/reference/messaging/classes/MessageRequest.mdx) request): [NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+Create a message with additional information.
+
+**Usage**
+
+```java
+MessageRequest request = new MessageRequest.Builder()
+                        .to("123yyyxxxx")
+                        .from("13456yyyuuu")
+                        .body("Hello world")
+                        .mediaUrl("example.com/test.png")
+                        .build();
+
+// Send message
+NewMessageResponse response = repository.create(request);
+
+// Print SID
+System.out.println(response.sid);
+```
+
+#### Returns
+[NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+### getMessages
+
+▸**getMessages**():[Messages](cxml/java/reference/messaging/classes/Messages.mdx)
+
+Get all the messages on your SignalWire project.
+
+#### Returns
+[Messages](cxml/java/reference/messaging/classes/Messages.mdx)
+
+### getMessages(MessageFilter)
+
+▸**getMessages**([MessageFilter](cxml/java/reference/messaging/classes/MessageFilter.mdx) `filter`): [Messages](cxml/java/reference/messaging/classes/Messages.mdx)
+
+Get all the messages on your Signalwire project, using the `filter` object to query the data on your SignalWire space.
+
+#### Returns
+[Messages](cxml/java/reference/messaging/classes/Messages.mdx)
+
+### get
+
+▸**get**(String sid): [Message](cxml/java/reference/messaging/classes/Message.mdx)
+
+Get a particular Message by SID. Returns a `Message` object.
+
+#### Returns
+[Message](cxml/java/reference/messaging/classes/Message.mdx)
+
+### update
+
+▸**update**(String sid, String body): [NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+Update a selected message item based on the `SID`
+
+#### Returns
+[NewMessageResponse](cxml/java/reference/messaging/classes/NewMessageResponse.mdx)
+
+### delete
+
+▸**delete**(String `sid`):SuccessResponse
+
+Deletes a selected message
+
+#### Returns
+`SuccessResponse`
+
+
+
+

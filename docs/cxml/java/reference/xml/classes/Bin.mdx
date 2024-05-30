@@ -1,0 +1,95 @@
+---
+sidebar_position: 0
+---
+
+# Bin
+
+An object that represents response from the creation of a Bin. you get this response from calling [repository.create()](cxml/java/reference/xml/LamlRepository.mdx#create).
+
+## Properties
+
+### account_sid
+
+- **account_sid:** `String`
+
+The unique identifier for the account that created this call.
+
+---
+### api_version
+
+- **api_version:** `String`
+
+The version of the SignalWire API.
+
+---
+
+### date_created
+
+- **date_created:** `String`
+
+The date, in RFC 2822 GMT format, this call was created.
+
+---
+
+### date_updated
+
+- **date_updated:** `String`
+
+The date, in RFC 2822 GMT format, this call was updated.
+
+---
+
+### sid
+
+- **sid:** `String`
+
+The unique identifier for the call.
+
+---
+
+### date_last_accessed
+
+- **date_last_accessed:** `String`
+
+The date and time, in ISO 8601 format, the Bin was last accessed.
+
+---
+
+### name
+
+- **name:** `String`
+
+A friendly name given to the XML Bin to help distinguish and search for different Bins within your project.
+
+---
+
+### contents
+
+- **contents:** `String`
+
+The contents of the Bin, this evaluates to valid XML, with additional support for mustache templating. [You can read more about XML Compatibility Bins in our documentation](https://developer.signalwire.com/compatibility-api/xml).
+
+---
+### request_url
+
+- **request_url:** `String`
+
+The unique URL to the raw contents of the XML Bin. Use this as the URL for configuring webhooks or anything needing the XML returned.
+
+---
+
+### num_requests
+
+- **num_requests:** `String`
+
+The number of times this Bin has been accessed.
+
+---
+
+### uri
+
+- **uri:** `String`
+
+The URL of this resource.
+
+---

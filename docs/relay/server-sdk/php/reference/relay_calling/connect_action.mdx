@@ -1,0 +1,128 @@
+---
+sidebar_label: ConnectAction
+---
+
+# Relay.Calling.ConnectAction
+
+This object returned from [`connectAsync`](relay/server-sdk/php/reference/relay_calling/call.mdx#connectasync) method that represents a connecting attempt that is currently active on a call.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### getResult
+
+Returns the final result of the connect attempt.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Calling.ConnectResult`](relay/server-sdk/php/reference/relay_calling/connect_result.mdx) - Final result of the connect attempt.
+
+**Examples**
+
+```php title="Trying to connect two numbers in series and grab the result when it's completed."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connectAsync(...$devices)->done(function($action) {
+  // .. later in the code since it's an async method
+  if ($action->isCompleted()) {
+    $result = $action->getResult();
+  }
+});
+```
+
+### getState
+
+Return the current state of the connect attempt.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - Current state of the connect attempt.
+
+**Examples**
+
+```php title="Trying to connect two numbers in series and print the state."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connectAsync(...$devices)->done(function($action) {
+  echo $action->getState();
+});
+```
+
+### getPayload
+
+Return the payload sent to Relay to initiate the request. Useful to inspect what you sent to perform this action.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Object` - Payload sent to Relay.
+
+**Examples**
+
+```php title="Trying to connect two numbers in series and print out the payload."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connectAsync(...$devices)->done(function($action) {
+  print_r($action->getPayload());
+});
+```
+
+### isCompleted
+
+Return `true` if the connect attempt has finished, `false` otherwise.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.0+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Boolean` - True/False accordingly to the state.
+
+**Examples**
+
+```php title="Trying to connect two numbers in series and check if it has finished."
+<?php
+
+$devices = [
+  [ "type" => "phone", "to" => "+18991114444", "timeout" => 30 ],
+  [ "type" => "phone", "to" => "+18991114445", "timeout" => 20 ]
+];
+$call->connectAsync(...$devices)->done(function($action) {
+  if ($action->isCompleted()) {
+
+  }
+});
+```

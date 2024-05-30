@@ -1,0 +1,136 @@
+---
+sidebar_label: SendDigitsAction
+---
+
+# Relay.Calling.SendDigitsAction
+
+This object is returned by [`sendDigitsAsync`](relay/server-sdk/php/reference/relay_calling/call.mdx#senddigitsasync) method that represents a _send digits_ operation currently active on a call.
+
+## Methods
+
+<div class="method-definitions"></div>
+
+### getControlId
+
+Return the UUID to identify the operation.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.2+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - UUID to identify the action.
+
+**Examples**
+
+```php title="Send some digits and print the controlId."
+<?php
+
+$call->sendDigitsAsync('1234')->done(function($action) {
+  echo $action->getControlId();
+});
+```
+
+### getPayload
+
+Return the payload sent to Relay to initiate the request. Useful to inspect what you sent to perform this action.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.2+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Object` - Payload sent to Relay.
+
+**Examples**
+
+```php title="Send some digits and print out the payload."
+<?php
+
+$call->sendDigitsAsync('1234')->done(function($action) {
+  print_r($action->getPayload());
+});
+```
+
+### getResult
+
+Returns the final result of the send digits operation.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.2+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+[`Relay.Calling.SendDigitsResult`](relay/server-sdk/php/reference/relay_calling/send_digits_result.mdx) - Final result of the operation.
+
+**Examples**
+
+```php title="Send some digits and grab the result when it's completed."
+<?php
+
+$call->sendDigitsAsync('1234')->done(function($action) {
+  // .. later in the code since it's an async method
+  if ($action->isCompleted()) {
+    $sendDigitsResult = $action->getResult();
+  }
+});
+```
+
+### getState
+
+Return the current state of the operation.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.2+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`string` - Current operation's state.
+
+**Examples**
+
+```php title="Send some digits and print the state."
+<?php
+
+$call->sendDigitsAsync('1234')->done(function($action) {
+  echo $action->getState();
+});
+```
+
+### isCompleted
+
+Return `true` if the operation has finished, `false` otherwise.
+
+Available In: <img class="method-available-tag" src="https://img.shields.io/badge/-v2.2+-brightgreen.svg" />
+
+**Parameters**
+
+_None_
+
+**Returns**
+
+`Boolean` - True/False accordingly to the state.
+
+**Examples**
+
+```php title="Send some digits and check if it has finished."
+<?php
+
+$call->sendDigitsAsync('1234')->done(function($action) {
+  if ($action->isCompleted()) {
+
+  }
+});
+```
