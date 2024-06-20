@@ -1,0 +1,50 @@
+# useAddresses [Alpha]
+
+This hook fetches the addresses from your SignalWire client and keeps them up to date.
+
+:::warning
+
+Please note that the Call Fabric is still in Alpha. The interfaces might have changed and
+the docs might not have caught up.
+
+Feel free to contact SignalWire support if something doesn't work.
+
+:::
+
+## Import
+
+```jsx
+import { useAddresses } from "@signalwire-community/react";
+```
+
+## Props
+
+<div className="lightTable" />
+
+| Name     | Type                           | Default | Description                                                |
+| :------- | :----------------------------- | :------ | :--------------------------------------------------------- |
+| `client` | `SignalWireContract` or `null` |         | The SignalWire client returned by the `useSignalWire` hook |
+
+## Example
+
+Example usage:
+
+```jsx
+import { Call } from "@signalwire-community/react";
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const client = useSignalWire({
+    token: "<token>",
+  });
+  const addresses = useAddresses(client);
+
+  return (
+    <div>
+      {addresses?.map((address) => (
+        <div>{address.type}</div>
+      ))}
+    </div>
+  );
+}
+```

@@ -1,0 +1,27 @@
+# Introduction [Alpha]
+
+The SignalWire client allows you to make calls to Fabric subscribers and addresses. It is supported in the React ecosystem
+using a few components and hooks.
+
+:::warning
+
+Please note that the Call Fabric is still in Alpha. The interfaces might have changed and
+the docs might not have caught up.
+
+Feel free to contact SignalWire support if something doesn't work.
+
+:::
+
+## The [useSignalWire](./useSignalWire) hook
+
+The `useSignalWire` hook will return a SignalWire client given a valid token. You will generally
+feed this client into any other component or hook that works on Fabric resources.
+
+## The [useAddresses](./useAddresses) hook
+
+The `useAddresses` hook will take a SignalWire client and return a list of Fabric addresses that can be called into. The list
+is automatically updated in case new entries are added.
+
+## The [Call](./Call) component
+
+This component will place a call to a given Fabric address. It expects you to provide a SignalWire client to place the call with.
